@@ -1,0 +1,2928 @@
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/07_가이드라인_성과연계와_HRD역량.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가이드라인 마지막 부분 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 4px;
+        }
+        .icon-circle {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .digital-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .digital-badge::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #38A169;
+            border: 2px solid white;
+        }
+        .progress-bar {
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3182CE, #63B3ED);
+        }
+        .competency-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .competency-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .analytics-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 30%;
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(49, 130, 206, 0.3);
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="content-wrapper">
+            <!-- Header -->
+            <div class="mb-6">
+                <h1 class="section-title text-4xl font-bold">2. 에듀테크 기반 AI 시대 핵심 역량 개발 가이드라인</h1>
+                <div class="accent-line mt-2 mb-4"></div>
+            </div>
+
+            <!-- Main Content: Two Columns Layout -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: AI 역량 내재화 및 성과 연계 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">사. AI 역량 내재화 및 성과 연계</h2>
+                    </div>
+
+                    <!-- Digital Credentials -->
+                    <div class="bg-blue-50 p-4 rounded-lg mb-5">
+                        <h3 class="font-bold text-lg text-blue-800 mb-3">
+                            <i class="fas fa-certificate text-blue-500 mr-2"></i>
+                            에듀테크 기반 인증 체계
+                        </h3>
+
+                        <div class="flex justify-around mb-4">
+                            <!-- Digital Badge -->
+                            <div class="flex flex-col items-center">
+                                <div class="digital-badge bg-gradient-to-br from-blue-400 to-blue-600 mb-2">
+                                    <i class="fas fa-robot text-white text-3xl"></i>
+                                </div>
+                                <p class="text-sm font-medium text-center">디지털 배지</p>
+                            </div>
+
+                            <!-- Micro Credential -->
+                            <div class="flex flex-col items-center">
+                                <div class="digital-badge bg-gradient-to-br from-purple-400 to-purple-600 mb-2">
+                                    <i class="fas fa-microchip text-white text-3xl"></i>
+                                </div>
+                                <p class="text-sm font-medium text-center">마이크로 크리덴셜</p>
+                            </div>
+
+                            <!-- Expert Certification -->
+                            <div class="flex flex-col items-center">
+                                <div class="digital-badge bg-gradient-to-br from-green-400 to-green-600 mb-2">
+                                    <i class="fas fa-medal text-white text-3xl"></i>
+                                </div>
+                                <p class="text-sm font-medium text-center">전문가 인증</p>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-gray-700 text-center">
+                            AI 역량 습득 과정을 공식적으로 인정 및 시각화
+                        </p>
+                    </div>
+
+                    <!-- Learning Analytics -->
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">
+                        <i class="fas fa-chart-pie text-blue-500 mr-2"></i>
+                        학습 데이터 분석 (Learning Analytics)
+                    </h3>
+
+                    <div id="analyticsChart" class="w-full" style="height: 200px;"></div>
+
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-3 rounded-lg">
+                            <h4 class="text-sm font-bold text-blue-800 mb-2">교육 효과성 측정</h4>
+                            <div class="space-y-2">
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span>기초 지식 향상</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="progress-bar bg-gray-200">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span>실무 적용률</span>
+                                        <span>72%</span>
+                                    </div>
+                                    <div class="progress-bar bg-gray-200">
+                                        <div class="progress-fill" style="width: 72%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <h4 class="text-sm font-bold text-gray-800 mb-1">성과 연계</h4>
+                            <ul class="text-xs space-y-1 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-link text-blue-500 mt-0.5 mr-1"></i>
+                                    <span>개인 성과 관리 통합</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-link text-blue-500 mt-0.5 mr-1"></i>
+                                    <span>경력 개발 계획과 연계</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-link text-blue-500 mt-0.5 mr-1"></i>
+                                    <span>교육 투자 ROI 가시화</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: HRD 담당자의 AI 리터러시 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">아. HRD 담당자의 AI 리터러시</h2>
+                    </div>
+
+                    <!-- Key Statement -->
+                    <div class="bg-blue-50 p-4 rounded-lg mb-5 border-l-4 border-blue-500">
+                        <p class="text-blue-800 font-medium">
+                            <i class="fas fa-quote-left text-blue-400 mr-2"></i>
+                            성공적인 AI 시대 인재 양성 전략의 핵심 동력은 바로 <span class="font-bold">HRD 담당자의 에듀테크 전문성</span>입니다.
+                        </p>
+                    </div>
+
+                    <!-- Core Competencies -->
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">
+                        <i class="fas fa-cogs text-blue-500 mr-2"></i>
+                        HRD 핵심 에듀테크 역량
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="competency-card p-3">
+                            <div class="flex items-center mb-2">
+                                <div class="analytics-icon w-10 h-10 mr-3 text-base flex-shrink-0">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-800">에듀테크 솔루션<br>분석 및 선정</h4>
+                            </div>
+                        </div>
+                        <div class="competency-card p-3">
+                            <div class="flex items-center mb-2">
+                                <div class="analytics-icon w-10 h-10 mr-3 text-base flex-shrink-0">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-800">AI 활용 교육<br>설계 및 운영</h4>
+                            </div>
+                        </div>
+                        <div class="competency-card p-3">
+                            <div class="flex items-center mb-2">
+                                <div class="analytics-icon w-10 h-10 mr-3 text-base flex-shrink-0">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-800">학습 데이터<br>분석 및 활용</h4>
+                            </div>
+                        </div>
+                        <div class="competency-card p-3">
+                            <div class="flex items-center mb-2">
+                                <div class="analytics-icon w-10 h-10 mr-3 text-base flex-shrink-0">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h4 class="text-sm font-bold text-gray-800">맞춤형 학습<br>경험 설계</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Importance -->
+                    <div class="bg-gradient-to-r from-blue-100 to-blue-50 p-4 rounded-lg mt-4">
+                        <h4 class="font-bold text-blue-800 mb-2">에듀테크 전문성이 중요한 이유</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                                <span>조직의 AI 전환 성공의 <span class="font-bold">필수 전제 조건</span></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                                <span>기술 동향을 <span class="font-bold">넘어선 전략적 통찰력</span> 제공</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                                <span>AI 리터러시 교육의 <span class="font-bold">효과 극대화</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Bottom Quote -->
+                    <div class="mt-4 text-center">
+                        <p class="font-bold text-blue-800">
+                            <i class="fas fa-arrow-right mr-2"></i>
+                            지속적인 학습과 실습을 통한 에듀테크 전문성 함양
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize ECharts instance
+        // Ensure Echarts is loaded before this script runs
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartElement = document.getElementById('analyticsChart');
+            if (chartElement) { // Check if the canvas element exists
+                const analyticsChart = echarts.init(chartElement);
+
+                // Chart options
+                const option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                    legend: {
+                        data: ['교육 전', '교육 후'],
+                        textStyle: {
+                            fontSize: 10
+                        }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: ['AI 기본 이해도', '활용 능숙도', '문제해결력', '윤리적 판단력'],
+                            axisLabel: {
+                                fontSize: 10
+                            }
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            max: 100,
+                            axisLabel: {
+                                fontSize: 10
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '교육 전',
+                            type: 'bar',
+                            barWidth: '30%',
+                            data: [45, 30, 55, 40],
+                            itemStyle: {
+                                color: '#9DC6FF'
+                            }
+                        },
+                        {
+                            name: '교육 후',
+                            type: 'bar',
+                            barWidth: '30%',
+                            data: [85, 75, 80, 70],
+                            itemStyle: {
+                                color: '#3182CE'
+                            }
+                        }
+                    ]
+                };
+
+                // Set chart options
+                analyticsChart.setOption(option);
+
+                // Responsive
+                window.addEventListener('resize', function() {
+                    analyticsChart.resize();
+                });
+            }
+        });
+    </script>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/03_필요성_AI시대_에듀테크_HRD_역할.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필요성 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Mermaid 최신 버전 또는 안정적인 버전 사용 권장 -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.0/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px; /* 내용에 따라 높이 자동 조절되도록 min-height 사용 */
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+            padding: 48px; /* px-12 */
+            display: flex; /* Flexbox 사용하여 중앙 정렬 등 용이하게 */
+            justify-content: center;
+            align-items: center; /* 수직 중앙 정렬 */
+        }
+        .slide-content-area { /* 실제 내용 영역 크기 제한 */
+             width: 100%;
+             max-width: 1152px; /* 1280px - 48px*2 padding */
+        }
+        .slide-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 5px;
+        }
+        .highlight-box {
+            border-left: 4px solid #3182CE;
+            background-color: rgba(49, 130, 206, 0.08);
+        }
+        .feature-card {
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.2);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 15px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%; /* slide-content-area 내부에서 꽉 차도록 */
+        }
+        /* Mermaid 다이어그램 크기 및 정렬 조정 */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 380px; /* 다이어그램 높이 확보 */
+            width: 100%;
+        }
+        .mermaid svg { /* SVG 크기 자동 조절 */
+           max-width: 100%;
+           height: auto;
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="slide-content-area">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <div class="mb-8">
+                    <h1 class="slide-title text-4xl font-bold">1. 필요성</h1>
+                    <div class="accent-line mt-2 mb-6"></div>
+                    <!-- 부제 수정: 에듀테크 강조 -->
+                    <p class="text-xl text-gray-700 font-medium">AI 시대, <span class="font-semibold text-blue-700">에듀테크 기반</span> HRD의 역할과 중요성</p>
+                </div>
+
+                <!-- Main Content -->
+                <div class="grid grid-cols-12 gap-8">
+                    <!-- Left Column: Main Points -->
+                    <div class="col-span-7 space-y-6">
+                        <!-- Key Point 1: 에듀테크 필요성 추가 -->
+                        <div class="highlight-box p-4 rounded-r-lg">
+                            <h2 class="text-2xl font-bold text-blue-700 mb-2">AI 리터러시 - 선택이 아닌 필수</h2>
+                            <p class="text-gray-700">급속도로 발전하는 생성형 AI 기술이 조직의 업무 방식과 환경을 근본적으로 변화시키며 디지털 업무 공간의 표준으로 자리잡고 있습니다. <strong class="text-blue-600">따라서, 효과적인 인재 양성 및 조직 적응을 위해 최신 에듀테크를 활용한 교육 시스템 구축이 시급합니다.</strong></p>
+                        </div>
+
+                        <!-- Key Point 2: AI 리터러시 정의 -->
+                        <div class="flex items-start space-x-4 my-4">
+                            <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">AI 리터러시란?</h3>
+                                <ul class="mt-2 space-y-2 text-gray-700">
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>AI의 원리와 개념 이해</li>
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>결과물의 강점·약점 비판적 평가</li>
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>편향성 인식 및 윤리적 책임감</li>
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>업무 가치 창출을 위한 올바른 활용</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Key Point 3: HRD 역할과 에듀테크 역량 강조 -->
+                        <div class="feature-card p-5 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">HRD 부서의 역할 중요성</h3>
+                            <p class="text-gray-700 mb-3">전사적인 AI 리터러시 함양이 시급한 과제로 떠오르면서, 인적 자원 개발(HRD) 부서의 역할은 그 어느 때보다 중요해졌습니다. <strong class="text-blue-600">특히, HRD 담당자가 최신 에듀테크 동향을 이해하고, 이를 활용하여 맞춤형 학습 경험을 설계하며, 교육 효과를 데이터 기반으로 분석/개선하는 역량이 필수적입니다.</strong></p>
+                            <div class="mt-4 bg-blue-50 p-3 rounded-lg">
+                                <!-- 파란색 박스 내용 수정: 에듀테크 통합 강조 -->
+                                <p class="text-blue-800 font-medium">최신 AI 기술과 <span class="font-semibold">에듀테크를 통합</span>한 효과적인 교육 프로그램 설계 및 운영 역량이 핵심</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visual Diagram (수정된 Mermaid 코드 적용) -->
+                    <div class="col-span-5">
+                        <div class="bg-white rounded-xl p-6 shadow-lg h-full flex flex-col">
+                            <h3 class="text-center text-xl font-bold text-gray-800 mb-4">AI와 에듀테크 기반 HRD</h3>
+                            <!-- 다이어그램 설명 추가 -->
+                            <p class="text-center text-sm text-gray-600 mb-4">AI 기술 발전은 에듀테크 혁신을 촉진하며, 이는 HRD 역량 강화를 통해 조직의 AI 리터러시 향상으로 이어집니다.</p>
+
+                            <!-- Mermaid 컨테이너 및 수정된 코드 -->
+                            <div class="mermaid-container">
+                                <div class="mermaid">
+flowchart TD
+    A[AI 기술 발전] --> B[에듀테크 혁신]
+    B --> C{교육 방식 변화}
+    C --> D[개인 맞춤형<br>학습 경로]
+    C --> E[지능형 학습<br>분석·피드백]
+    C --> F[스마트 콘텐츠<br>큐레이션]
+
+    %% gather_point 노드 및 관련 스타일 제거
+    %% D, E, F 노드를 직접 G 노드에 연결
+    D --> G[HRD 담당자<br>에듀테크 역량 강화]
+    E --> G
+    F --> G
+
+    G --> H[조직 AI 리터러시 향상]
+
+    %% 기존 노드 스타일 (유지)
+    style A fill:#e3f2fd,stroke:#90caf9
+    style B fill:#e3f2fd,stroke:#90caf9
+    style C fill:#fff9c4,stroke:#fff176
+    style D fill:#e8f5e9,stroke:#a5d6a7
+    style E fill:#e8f5e9,stroke:#a5d6a7
+    style F fill:#e8f5e9,stroke:#a5d6a7
+    style G fill:#ede7f6,stroke:#b39ddb
+    style H fill:#ffebee,stroke:#ef9a9a
+                                </div>
+                            </div>
+
+                            <div class="mt-6 text-center">
+                                <span class="inline-block px-4 py-2 bg-blue-600 text-white font-medium rounded-full">
+                                    HRD + 에듀테크 = 조직 경쟁력
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Quote: 에듀테크 강조 -->
+                <div class="mt-10 bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border-l-4 border-blue-500">
+                    <p class="text-blue-800 font-semibold">
+                        <i class="fas fa-quote-left text-blue-400 mr-2"></i>
+                        AI 시대의 성공적인 인재 양성은 HRD 부서가 최신 <span class="font-bold">에듀테크 동향</span>을 얼마나 잘 이해하고 전략적으로 활용하는지에 달려있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base', // 'neutral' 또는 'default' 등 다른 테마 시도 가능
+            flowchart: {
+                curve: 'basis', // 선 곡률
+                htmlLabels: true, // HTML 라벨 사용
+                useMaxWidth: true // 컨테이너 너비에 맞춤 (false로 변경하여 테스트 가능)
+            },
+            // 테마 변수 커스터마이징 (선택 사항)
+            themeVariables: {
+               fontSize: '14px'
+            }
+        });
+    </script>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/06_가이드라인_실습환경과_지속학습.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가이드라인 세 번째 부분 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 4px;
+        }
+        .feature-card {
+            background-color: white;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3182CE;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(49, 130, 206, 0.2);
+        }
+        .icon-circle {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .tool-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex; /* Added flex */
+            flex-direction: column; /* Added flex */
+            justify-content: space-between; /* Added flex */
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .hexagon-container {
+             /* Container to manage spacing for the hexagon and text */
+             padding-top: 28.87px; /* Space for top point */
+             padding-bottom: 36px; /* Space for bottom point + text */
+             position: relative;
+             width: 100px; /* Match hexagon width */
+             margin: 0 auto; /* Center the container */
+         }
+
+        .hexagon {
+            position: relative;
+            width: 100px;
+            height: 57.74px; /* width * sqrt(3)/2 */
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+        }
+
+        .hexagon::before,
+        .hexagon::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 50px solid transparent; /* width/2 */
+            border-right: 50px solid transparent; /* width/2 */
+            left: 0;
+        }
+
+        .hexagon::before {
+            bottom: 100%;
+            border-bottom: 28.87px solid #3182CE; /* height/2 */
+        }
+
+        .hexagon::after {
+            top: 100%;
+            border-top: 28.87px solid #63B3ED; /* height/2 */
+        }
+
+        .hexagon-text {
+            position: absolute;
+            bottom: 0; /* Position at the bottom of the container */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 4px 12px; /* Adjusted padding */
+            border-radius: 9999px; /* Fully rounded */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+
+        .learning-pillar {
+            position: relative;
+            min-height: 140px; /* Increased min-height slightly */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; /* Space between icon and text */
+            flex: 1;
+            margin: 0 4px; /* Reduced horizontal margin */
+            padding-bottom: 5px; /* Add padding at the bottom */
+        }
+        .learning-pillar::before {
+            content: '';
+            position: absolute;
+            top: 40px; /* Start below the icon */
+            left: 50%;
+            height: calc(100% - 80px - 5px); /* Adjusted height considering padding */
+            width: 3px;
+            background: linear-gradient(to bottom, #3182CE, #63B3ED);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .learning-pillar .icon-container {
+             width: 40px;
+             height: 40px;
+             margin-bottom: 12px; /* Increased space between icon and text */
+             z-index: 10;
+             flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+        .learning-pillar .text-container {
+            width: 95%; /* Adjust text width if necessary */
+            margin-top: auto; /* Push text towards the bottom */
+            z-index: 10;
+            background-color: white;
+            padding: 8px 4px; /* Adjust padding */
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .news-item {
+            border-left: 3px solid #3182CE;
+            padding-left: 16px; /* Increased padding */
+            margin-bottom: 12px; /* Increased spacing */
+            position: relative;
+        }
+        .news-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #3182CE;
+            border: 2px solid white; /* Add border to make it stand out */
+        }
+        /* Ensure IBM logo placeholder is visible */
+        .ibm-logo-placeholder {
+             width: 24px;
+             height: 24px;
+             background-color: #f0f0f0; /* Placeholder color */
+             border: 1px solid #ccc;
+             border-radius: 4px;
+             display: inline-block;
+             margin-right: 8px;
+             vertical-align: middle;
+         }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="content-wrapper">
+            <!-- Header -->
+            <div class="mb-6">
+                <h1 class="section-title text-4xl font-bold">2. 에듀테크 기반 AI 시대 핵심 역량 개발 가이드라인</h1>
+                <div class="accent-line mt-2 mb-4"></div>
+            </div>
+
+            <!-- Main Content: Two Columns Layout -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: 실습 중심 학습 환경 제공 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4 flex-shrink-0">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">마. 실습 중심 학습 환경 제공</h2>
+                    </div>
+
+                    <!-- Key Point -->
+                    <div class="bg-blue-50 p-4 rounded-lg mb-5">
+                        <p class="text-blue-800 font-medium text-center text-base"> <!-- Adjusted text size -->
+                            <i class="fas fa-quote-left mr-2 text-blue-400"></i>
+                            실제적이고 몰입감 있는 프로젝트 기반 학습(PBL) 경험 제공
+                            <i class="fas fa-quote-right ml-2 text-blue-400"></i>
+                        </p>
+                    </div>
+
+                    <!-- Learning Environments -->
+                    <div class="grid grid-cols-2 gap-4 mb-5">
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <i class="fas fa-cloud text-blue-600 text-2xl"></i>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">클라우드 기반</h3>
+                                <p class="text-sm text-gray-600">AI 개발 플랫폼</p>
+                            </div>
+                        </div>
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <!-- Placeholder icon if specific one isn't right -->
+                                <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                            </div>
+                             <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">데이터 기반</h3>
+                                <p class="text-sm text-gray-600">분석 챌린지</p>
+                            </div>
+                        </div>
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <i class="fas fa-gamepad text-blue-600 text-2xl"></i>
+                            </div>
+                             <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">인터랙티브</h3>
+                                <p class="text-sm text-gray-600">시뮬레이션 게임</p>
+                            </div>
+                        </div>
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <i class="fas fa-project-diagram text-blue-600 text-2xl"></i>
+                            </div>
+                             <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">프로젝트 기반</h3>
+                                <p class="text-sm text-gray-600">실무형 학습</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accessible Tools -->
+                    <div class="bg-gray-100 p-4 rounded-lg mt-auto"> <!-- Pushed to bottom -->
+                        <h3 class="font-bold text-lg text-gray-800 mb-3">
+                            <i class="fas fa-hand-point-right text-blue-500 mr-2"></i>
+                            접근성 높은 AI 학습 플랫폼
+                        </h3>
+                        <div class="space-y-2 sm:space-y-0 sm:flex sm:justify-between sm:items-center sm:gap-2">
+                            <div class="bg-white p-3 rounded-lg shadow-sm flex items-center w-full sm:w-auto">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" width="24" height="24" class="mr-2 flex-shrink-0" alt="Google">
+                                <span class="text-sm font-medium">Google Teachable Machine</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm flex items-center w-full sm:w-auto">
+                                <!-- Using a placeholder div for IBM logo -->
+                                <span class="ibm-logo-placeholder"></span>
+                                <span class="text-sm font-medium">IBM Machine Learning for Kids</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: 지속적인 학습 및 AI 동향 공유 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500 flex flex-col">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4 flex-shrink-0">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">바. 지속적인 학습 및 AI 동향 공유</h2>
+                    </div>
+
+                    <!-- Learning Ecosystem -->
+                    <div class="mb-6"> <!-- Adjusted margin -->
+                        <h3 class="font-bold text-lg text-gray-800 mb-4 text-center">
+                            <i class="fas fa-seedling text-green-500 mr-2"></i>
+                            에듀테크 기반 학습 생태계
+                        </h3>
+
+                        <div class="flex justify-around items-stretch mb-4"> <!-- Use items-stretch -->
+                             <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">AI 기술<br>뉴스 채널</p>
+                                </div>
+                            </div>
+
+                            <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">맞춤형<br>학습 알림</p>
+                                </div>
+                            </div>
+
+                            <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">전문가<br>웨비나</p>
+                                </div>
+                            </div>
+
+                            <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">AI 전문가<br>CoP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LXP Center - Revised Approach -->
+                    <div class="flex justify-center my-6"> <!-- Adjusted margin -->
+                         <div class="hexagon-container">
+                             <div class="hexagon flex items-center justify-center">
+                                 <span class="text-white font-bold text-lg relative z-10">LXP</span>
+                             </div>
+                             <div class="hexagon-text">
+                                 <span class="text-sm font-medium text-blue-800">중앙 플랫폼</span>
+                             </div>
+                         </div>
+                     </div>
+
+                    <!-- Latest AI News Example -->
+                    <div class="mt-4 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-800 mb-4"> <!-- Increased margin -->
+                            <i class="fas fa-rss text-blue-500 mr-2"></i>
+                            최신 AI 동향 예시
+                        </h3>
+
+                        <div class="space-y-3"> <!-- Increased spacing -->
+                            <div class="news-item">
+                                <h4 class="text-sm font-bold mb-0.5">생성형 AI 기술 발전</h4>
+                                <p class="text-xs text-gray-600">멀티모달 생성 AI 모델의 최신 동향</p>
+                            </div>
+
+                            <div class="news-item">
+                                <h4 class="text-sm font-bold mb-0.5">AI 윤리 및 규제</h4>
+                                <p class="text-xs text-gray-600">주요 국가별 AI 규제 프레임워크 비교</p>
+                            </div>
+
+                            <div class="news-item">
+                                <h4 class="text-sm font-bold mb-0.5">산업별 AI 적용 사례</h4>
+                                <p class="text-xs text-gray-600">금융, 의료, 제조업의 AI 혁신 사례</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quote -->
+                    <div class="bg-blue-50 p-3 rounded-lg mt-6 border-l-4 border-blue-500"> <!-- Adjusted margin -->
+                        <p class="text-sm italic text-blue-800">
+                            "AI 분야는 빠르게 변화하므로 <span class="font-bold">지속적인 학습</span>이 필수적입니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/05_가이드라인_비판적사고와_직무별_활용학습.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가이드라인 두 번째 부분 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 4px;
+        }
+        .feature-card {
+            background-color: white;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3182CE;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(49, 130, 206, 0.2);
+        }
+        .icon-circle {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .skill-pill {
+            background-color: #EBF4FF;
+            color: #2C5282;
+            border-radius: 999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.2s ease;
+        }
+        .skill-pill:hover {
+            background-color: #3182CE;
+            color: white;
+        }
+        .interaction-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #3182CE;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .interaction-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid #3182CE;
+            transition: all 0.3s ease;
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="content-wrapper">
+            <!-- Header -->
+            <div class="mb-6">
+                <h1 class="section-title text-4xl font-bold">2. 에듀테크 기반 AI 시대 핵심 역량 개발 가이드라인</h1>
+                <div class="accent-line mt-2 mb-4"></div>
+            </div>
+
+            <!-- Main Content: Two Columns Layout -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: 비판적 사고 및 AI 결과 평가 능력 함양 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">다. 비판적 사고 및 AI 결과 평가 능력 함양</h2>
+                    </div>
+
+                    <!-- Critical Thinking Components -->
+                    <div class="bg-blue-50 p-4 rounded-lg mb-5">
+                        <h3 class="text-lg font-bold text-blue-800 mb-3">AI 결과 평가 핵심 역량</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">사실 확인 능력</span>
+                            </div>
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">신뢰도 평가</span>
+                            </div>
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">편향성 인지</span>
+                            </div>
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">모델 강점/약점 분석</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Learning -->
+                    <div class="mb-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">
+                            <i class="fas fa-users text-blue-500 mr-2"></i>
+                            상호작용 촉진 에듀테크
+                        </h3>
+
+                        <div class="flex flex-wrap justify-center space-x-2 my-4">
+                            <div class="interaction-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="interaction-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="interaction-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="interaction-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 mt-3">
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">AI 기반 지능형 피드백 시스템</h4>
+                                <p class="text-xs text-gray-600">실시간 학습 피드백 제공</p>
+                            </div>
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">LXP 내 토론 포럼</h4>
+                                <p class="text-xs text-gray-600">동료 간 의견 교환 및 협업</p>
+                            </div>
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">전문가 Q&A 세션</h4>
+                                <p class="text-xs text-gray-600">전문성 기반 학습 환경</p>
+                            </div>
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">소셜 러닝 그룹</h4>
+                                <p class="text-xs text-gray-600">집단 지성 활용 학습</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quote -->
+                    <div class="bg-gray-100 p-4 rounded-lg mt-4 border-l-4 border-blue-400">
+                        <p class="text-sm italic text-gray-700">
+                            "비판적 사고는 AI 시대에 더욱 중요해지는 <span class="font-bold">인간 고유의 핵심 역량</span>입니다."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: 직무별 맞춤형 AI 활용 사례 학습 및 적용 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">라. 직무별 맞춤형 AI 활용 사례 학습</h2>
+                    </div>
+
+                    <!-- AI-based Personalization -->
+                    <div class="mb-5">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-3">
+                                <i class="fas fa-cogs text-blue-700 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-1">지능형 에듀테크 활용</h3>
+                                <p class="text-gray-700 text-sm">
+                                    AI 기반 콘텐츠 큐레이션 엔진으로 개인별 맞춤형 학습 경로 제공
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job-specific Content -->
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">
+                        <i class="fas fa-briefcase text-blue-500 mr-2"></i>
+                        직무별 AI 활용 사례
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">마케팅</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">컨텐츠 생성</span>
+                                <span class="skill-pill">타겟팅</span>
+                            </div>
+                        </div>
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">연구개발</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">데이터 분석</span>
+                                <span class="skill-pill">특허 검색</span>
+                            </div>
+                        </div>
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">고객서비스</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">챗봇 활용</span>
+                                <span class="skill-pill">응대 최적화</span>
+                            </div>
+                        </div>
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">인사</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">인재 매칭</span>
+                                <span class="skill-pill">성과 예측</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Application Methods -->
+                    <div class="bg-blue-50 p-4 rounded-lg mt-5">
+                        <h3 class="font-bold text-blue-800 mb-2">실무 적용 활성화 방안</h3>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 bg-white p-2 rounded-lg shadow-sm">
+                                <i class="fas fa-trophy text-yellow-500"></i>
+                                <span class="text-gray-700 text-sm">AI 활용 우수 사례 공모전</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white p-2 rounded-lg shadow-sm">
+                                <i class="fas fa-chalkboard-teacher text-blue-500"></i>
+                                <span class="text-gray-700 text-sm">직무별 AI 활용 워크숍</span>
+                            </div>
+                        </div>
+                        <div class="w-full h-[120px] mt-4">
+                            <canvas id="adoptionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chart for AI Adoption by Department
+        // Ensure Chart.js is loaded before this script runs
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartElement = document.getElementById('adoptionChart');
+            if (chartElement) { // Check if the canvas element exists
+                const ctx = chartElement.getContext('2d');
+                const adoptionChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['마케팅', '연구개발', '고객서비스', '인사', '재무', 'IT'],
+                        datasets: [{
+                            label: '직무별 AI 활용 수준',
+                            data: [75, 85, 70, 65, 60, 90],
+                            backgroundColor: [
+                                'rgba(49, 130, 206, 0.7)',
+                                'rgba(49, 130, 206, 0.8)',
+                                'rgba(49, 130, 206, 0.7)',
+                                'rgba(49, 130, 206, 0.6)',
+                                'rgba(49, 130, 206, 0.5)',
+                                'rgba(49, 130, 206, 0.9)'
+                            ],
+                            borderColor: [
+                                'rgba(49, 130, 206, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                title: {
+                                    display: true,
+                                    text: 'AI 활용률 (%)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: '직무별 AI 활용 현황',
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/01_표지_에듀테크_핵심_역량개발_가이드라인.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .title-box {
+            position: relative;
+            z-index: 10;
+        }
+        .blue-gradient-text {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .tech-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.07;
+            background-image:
+                radial-gradient(circle, #3182CE 1px, transparent 1px),
+                radial-gradient(circle, #3182CE 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+        .blue-accent {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3182CE 0%, #90CDF4 100%);
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+        .icon-grid {
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            opacity: 0.7;
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col items-center justify-center relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="tech-pattern"></div>
+        <div class="blue-accent" style="top: -100px; left: -100px;"></div>
+        <div class="blue-accent" style="bottom: -150px; right: -50px;"></div>
+
+        <!-- Main Content -->
+        <div class="title-box text-center px-12 py-10 rounded-xl backdrop-filter backdrop-blur-sm bg-white bg-opacity-30 border border-gray-200 shadow-xl">
+            <span class="inline-block mb-4 px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-full">AI 시대의 역량 개발</span>
+
+            <h1 class="text-6xl font-black mb-6 blue-gradient-text tracking-tight leading-tight">
+                에듀테크 핵심 역량개발<br>가이드라인
+            </h1>
+
+            <p class="text-2xl text-gray-700 mb-6 font-medium">
+                (대상: 기업 HRD 담당자)
+            </p>
+
+            <div class="mt-16 pt-6 border-t border-gray-300 flex items-center justify-center">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white mr-4">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm text-gray-600">발표자</p>
+                        <p class="text-xl font-bold text-gray-800">문경필</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Icons -->
+        <div class="icon-grid">
+            <div class="w-16 h-16 rounded-lg bg-white bg-opacity-70 shadow-md flex items-center justify-center text-blue-600 text-2xl">
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="w-16 h-16 rounded-lg bg-white bg-opacity-70 shadow-md flex items-center justify-center text-blue-600 text-2xl">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="w-16 h-16 rounded-lg bg-white bg-opacity-70 shadow-md flex items-center justify-center text-blue-600 text-2xl">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="w-16 h-16 rounded-lg bg-white bg-opacity-70 shadow-md flex items-center justify-center text-blue-600 text-2xl">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <div class="w-16 h-16 rounded-lg bg-white bg-opacity-70 shadow-md flex items-center justify-center text-blue-600 text-2xl">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="w-16 h-16 rounded-lg bg-white bg-opacity-70 shadow-md flex items-center justify-center text-blue-600 text-2xl">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/index.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프레젠테이션 목차</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 900px; margin: 20px auto; }
+        h1 { border-bottom: 2px solid #3182CE; padding-bottom: 10px; color: #2C5282; }
+        ol { padding-left: 0; list-style: none; }
+        li { margin-bottom: 12px; background-color: #f7fafc; border-radius: 5px; border-left: 5px solid #63B3ED; }
+        li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #2C5282;
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        li a:hover {
+            background-color: #e2e8f0;
+            color: #1A365D;
+            transform: translateX(5px);
+        }
+        li .slide-number {
+            display: inline-block;
+            width: 25px; /* Fixed width for alignment */
+            text-align: right;
+            margin-right: 10px;
+            font-weight: bold;
+            color: #3182CE;
+        }
+    </style>
+</head>
+<body>
+    <h1>슬라이드 목록</h1>
+    <ol>
+        <li><a href="01_표지_에듀테크_핵심_역량개발_가이드라인.html"><span class="slide-number">1.</span>표지: 에듀테크 핵심 역량개발 가이드라인</a></li>
+        <li><a href="02_목차.html"><span class="slide-number">2.</span>목차</a></li>
+        <li><a href="03_필요성_AI시대_에듀테크_HRD_역할.html"><span class="slide-number">3.</span>필요성: AI 시대 에듀테크 기반 HRD의 역할</a></li>
+        <li><a href="04_가이드라인_리터러시_진단과_통합교육.html"><span class="slide-number">4.</span>가이드라인 (1): 리터러시 진단 및 통합 교육</a></li>
+        <li><a href="05_가이드라인_비판적사고와_직무별_활용학습.html"><span class="slide-number">5.</span>가이드라인 (2): 비판적 사고 및 직무별 활용 학습</a></li>
+        <li><a href="06_가이드라인_실습환경과_지속학습.html"><span class="slide-number">6.</span>가이드라인 (3): 실습 환경 및 지속 학습</a></li>
+        <li><a href="07_가이드라인_성과연계와_HRD역량.html"><span class="slide-number">7.</span>가이드라인 (4): 역량 내재화 및 HRD 리터러시</a></li>
+        <li><a href="08_참고문헌.html"><span class="slide-number">8.</span>참고문헌</a></li>
+        <li><a href="09_마무리_감사합니다.html"><span class="slide-number">9.</span>마무리: 감사합니다</a></li>
+    </ol>
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/08_참고문헌.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>참고문헌 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 4px;
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .reference-card {
+            transition: all 0.3s ease;
+            border-left: 3px solid #3182CE;
+        }
+        .reference-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(49, 130, 206, 0.2);
+            background-color: rgba(49, 130, 206, 0.05);
+        }
+        .ref-number {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 2px 5px rgba(49, 130, 206, 0.3);
+        }
+        .book-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .ref-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="content-wrapper">
+            <!-- Header -->
+            <div class="mb-8 flex justify-between items-center">
+                <div>
+                    <h1 class="section-title text-4xl font-bold">참고문헌</h1>
+                    <div class="accent-line mt-2"></div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="book-icon bg-blue-100 text-blue-600">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="book-icon bg-blue-200 text-blue-700">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <div class="book-icon bg-blue-300 text-blue-800">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- References Content -->
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Korean References -->
+                <div class="ref-section p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm flex items-center justify-center mr-3">KR</span>
+                        국내 문헌
+                    </h2>
+
+                    <div class="space-y-3">
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">1</div>
+                                <p class="text-sm text-gray-700">김경애. (2015). EPP모델을 활용한 초등교사들의 핵심역량 분석에 관한 연구. 한국교원교육연구</p>
+                            </div>
+                        </div>
+
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">2</div>
+                                <p class="text-sm text-gray-700">오현규. (2023). ChatGPT의 등장과 공공 HRD의 과제. 정보통신정책연구원</p>
+                            </div>
+                        </div>
+
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">3</div>
+                                <p class="text-sm text-gray-700">김희준, 황욱선 (2023). DACUM 기법을 활용한 시설물 안전진단 드론 실무 전문가 역량 개발을 위한 교육과정개발 단국대학교 미래산업연구소</p>
+                            </div>
+                        </div>
+
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">4</div>
+                                <p class="text-sm text-gray-700">윤동열, 조세형, & 배을규. (2011). 국내 직무분석 연구에서 DACUM 활용 현황과 비판. 교육문화연구</p>
+                            </div>
+                        </div>
+
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">5</div>
+                                <p class="text-sm text-gray-700">이가영, 하정은, 차현진 (2024). 대학교육에서 AI 기반 맞춤형 교수·학습 지원을 위한 학습자 특성 진단 및 분석에 대한 요구 분석. 컴퓨터교육학회 논문지</p>
+                            </div>
+                        </div>
+
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">6</div>
+                                <p class="text-sm text-gray-700">이철현. (2020). AI 시대 역량 함양을 위한 실과 소프트웨어교육의 방향. 실과교육연구</p>
+                            </div>
+                        </div>
+
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">7</div>
+                                <p class="text-sm text-gray-700">황은경, 신종호 (2021). 대학 기초 과학 수업에서의 인공지능 기반 적응형 학습 시스템의 도입과 적용에 관한 탐색적 고찰 - 일반화학 수업 사례 중심으로. 교양교육연구</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English References -->
+                <div class="ref-section p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm flex items-center justify-center mr-3">EN</span>
+                        국외 문헌
+                    </h2>
+
+                    <div class="space-y-3">
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">8</div>
+                                <p class="text-sm text-gray-700">Chandra, P., Dubey, A., Sharma, S. K., & Karsoliya, S. (2024). A novel Conceptualization of AI Literacy and Empowering Employee Experience at Digital Workplace Using Generative AI and Augmented Analytics: A Survey. J. Electrical Systems</p>
+                            </div>
+                        </div>
+
+                        <div class="reference-card bg-white p-3 rounded-r-lg">
+                            <div class="flex">
+                                <div class="ref-number w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">9</div>
+                                <p class="text-sm text-gray-700">Park, J., & Park, H. (2024). Enablers and Inhibitors of Generative AI Usage Intentions in Work Environments. Journal of the Korean Society for Quality Management</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual element for English section -->
+                    <div class="mt-8 flex justify-center">
+                        <div class="p-4 bg-blue-50 rounded-lg max-w-md">
+                            <div class="flex items-center">
+                                <div class="text-blue-500 mr-4 text-3xl">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-blue-800 mb-1">주요 인용 분야</h3>
+                                    <p class="text-sm text-gray-700">AI 리터러시, 에듀테크, 디지털 업무환경, 생성형 AI, 인재 개발</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Note -->
+            <div class="mt-8 text-center text-gray-500 text-sm italic">
+                참고문헌은 APA 형식으로 작성되었습니다.
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/09_마무리_감사합니다.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마무리 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .thank-you {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 2px 10px rgba(49, 130, 206, 0.2);
+        }
+        .summary {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .tech-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.07;
+            background-image:
+                radial-gradient(circle, #3182CE 1px, transparent 1px),
+                radial-gradient(circle, #3182CE 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+        .blue-accent {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3182CE 0%, #90CDF4 100%);
+            filter: blur(70px);
+            opacity: 0.4;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Changed from 3 to 5 to match icons */
+            gap: 15px;
+        }
+        .pulsate {
+            animation: pulsate 2s infinite;
+        }
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .rotate-slow {
+            animation: rotate 12s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container flex items-center justify-center">
+        <!-- Background Elements -->
+        <div class="tech-pattern"></div>
+        <div class="blue-accent w-[500px] h-[500px]" style="top: -200px; right: -200px;"></div>
+        <div class="blue-accent w-[400px] h-[400px]" style="bottom: -150px; left: -150px;"></div>
+
+        <!-- Main Content -->
+        <!-- Added pb-32 here -->
+        <div class="relative z-10 text-center px-20 pb-32">
+            <div class="mb-8 flex justify-center">
+                <!-- Circular animation element -->
+                <div class="relative w-32 h-32">
+                    <div class="absolute inset-0 bg-blue-200 rounded-full opacity-20 rotate-slow"></div>
+                    <div class="absolute inset-2 bg-blue-300 rounded-full opacity-30 rotate-slow" style="animation-direction: reverse;"></div>
+                    <div class="absolute inset-4 bg-blue-400 rounded-full opacity-40 rotate-slow"></div>
+                    <div class="absolute inset-0 w-full h-full flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-blue-600 text-5xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="thank-you text-7xl font-black mb-10 pulsate">감사합니다</h1>
+
+            <div class="summary p-8 mb-10 max-w-4xl mx-auto">
+                <p class="text-3xl font-medium text-blue-900 leading-relaxed">
+                    <i class="fas fa-quote-left text-blue-400 mr-3 opacity-50"></i>
+                    AI 시대의 성공적인 인재 양성은 HRD 담당자의 에듀테크 전문성에 달려있으며,<br>
+                    이는 조직의 디지털 전환과 경쟁력 강화의 핵심 동력입니다.
+                    <i class="fas fa-quote-right text-blue-400 ml-3 opacity-50"></i>
+                </p>
+            </div>
+
+            <!-- Speaker Info -->
+            <div class="mt-16 inline-block bg-white bg-opacity-70 rounded-full px-8 py-4 shadow-lg">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white mr-4">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm text-gray-600">발표자</p>
+                        <p class="text-xl font-bold text-gray-800">문경필</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Decorations -->
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center opacity-70">
+             <!-- Note: You have 5 icons but defined grid-template-columns: repeat(3, 1fr);
+                  I've updated the CSS above to repeat(5, 1fr) to match the number of icons. -->
+            <div class="icon-grid">
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/04_가이드라인_리터러시_진단과_통합교육.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가이드라인 첫 부분 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 4px;
+        }
+        .step-card {
+            background-color: white;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3182CE;
+        }
+        .step-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(49, 130, 206, 0.2);
+        }
+        .circle-icon {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .process-line {
+            height: 2px;
+            background: linear-gradient(90deg, #3182CE, #63B3ED);
+        }
+        .step-number {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 3px 8px rgba(49, 130, 206, 0.3);
+        }
+        .highlight-concept {
+            background: rgba(49, 130, 206, 0.08);
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="content-wrapper">
+            <!-- Header -->
+            <div class="mb-6">
+                <h1 class="section-title text-4xl font-bold">2. 에듀테크 기반 AI 시대 핵심 역량 개발 가이드라인</h1>
+                <div class="accent-line mt-2 mb-4"></div>
+            </div>
+
+            <!-- Main Content: Two Columns Layout -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: AI 리터러시 수준 정의 및 진단 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="circle-icon w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">가. AI 리터러시 수준 정의 및 진단</h2>
+                    </div>
+
+                    <div class="space-y-5 mt-6">
+                        <!-- Step 1 -->
+                        <div class="step-card p-4 rounded-r-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">1</div>
+                                <h3 class="text-lg font-bold text-blue-700">목표 수준 정의</h3>
+                            </div>
+                            <ul class="pl-4 text-gray-700">
+                                <li class="flex items-start mb-2">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                    <span>조직 비전과 직무 특성 고려한 <span class="highlight-concept">AI 리터러시 수준 정의</span></span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                    <span>AI 리터러시 4요소: <span class="font-medium">기초지식, 활용능력, 개발능력, 윤리·가치관</span></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step-card p-4 rounded-r-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">2</div>
+                                <h3 class="text-lg font-bold text-blue-700">현재 수준 진단</h3>
+                            </div>
+                            <p class="text-gray-700 mb-2">에듀테크 기반 진단 도구 활용:</p>
+                            <ul class="pl-4 text-gray-700">
+                                <li class="flex items-start mb-2">
+                                    <i class="fas fa-tools text-blue-500 mt-1 mr-2"></i>
+                                    <span>온라인 AI 역량 진단 도구</span>
+                                </li>
+                                <li class="flex items-start mb-2">
+                                    <i class="fas fa-tools text-blue-500 mt-1 mr-2"></i>
+                                    <span>AI 기반 스킬 맵핑 플랫폼</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-tools text-blue-500 mt-1 mr-2"></i>
+                                    <span>LMS/LXP 내 자체 진단 기능</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="step-card p-4 rounded-r-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">3</div>
+                                <h3 class="text-lg font-bold text-blue-700">진단 결과 분석 및 활용</h3>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg text-blue-800">
+                                <i class="fas fa-database mr-2"></i>
+                                <span>데이터 기반 개인별 AI 역량 심층 분석</span>
+                            </div>
+                            <div class="mt-2 text-gray-700">
+                                ⟶ 맞춤형 학습 경로 설계 및 콘텐츠 추천 기반 마련
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: AI 역량 강화를 위한 통합 교육 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="circle-icon w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">나. AI 역량 강화를 위한 통합 교육</h2>
+                    </div>
+
+                    <div class="mb-5">
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-3 rounded-lg">
+                            <p class="text-blue-800 font-medium">
+                                <i class="fas fa-bullseye mr-2"></i>
+                                진단 결과 기반 맞춤형 교육 전략 수립
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Education Process -->
+                    <div class="relative my-8">
+                        <div class="process-line absolute top-6 left-6 w-full"></div>
+                        <div class="flex justify-between relative">
+                            <div class="bg-white px-2 z-10 text-center">
+                                <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center mx-auto">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <p class="mt-2 font-medium">기초 역량</p>
+                            </div>
+                            <div class="bg-white px-2 z-10 text-center">
+                                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center mx-auto">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <p class="mt-2 font-medium">실무 활용</p>
+                            </div>
+                            <div class="bg-white px-2 z-10 text-center">
+                                <div class="w-12 h-12 rounded-full bg-blue-700 text-white flex items-center justify-center mx-auto">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <p class="mt-2 font-medium">현업적용</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Components -->
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <!-- Component 1 -->
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">
+                                <i class="fas fa-cube text-blue-500 mr-2"></i>기초 역량 강화
+                            </h3>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• AI 핵심 원리 및 기술 이해</li>
+                                <li>• 인터랙티브 이러닝 모듈</li>
+                                <li>• 마이크로러닝, 숏폼 비디오</li>
+                                <li>• 맞춤형 기초 학습 콘텐츠</li>
+                            </ul>
+                        </div>
+
+                        <!-- Component 2 -->
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">
+                                <i class="fas fa-cube text-blue-500 mr-2"></i>실무 활용 능력 배양
+                            </h3>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 생성형 AI 도구 활용법</li>
+                                <li>• 프롬프트 엔지니어링 교육</li>
+                                <li>• 가상 실습 환경(Virtual Labs)</li>
+                                <li>• 클라우드 기반 샌드박스</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Note -->
+                    <div class="mt-6 bg-gray-100 p-3 rounded-lg flex items-center">
+                        <div class="text-blue-600 mr-3">
+                            <i class="fas fa-lightbulb text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-700">LMS/LXP 플랫폼 기반 <span class="font-bold">접근성과 편의성이 높은 에듀테크 콘텐츠</span> 제공으로 몰입도 향상</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/02_목차.html
+##################################################
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목차 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(to right, #f5f7fa, #eef2f7);
+        }
+        .slide-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 5px;
+        }
+        .toc-item {
+            transition: all 0.3s ease;
+        }
+        .toc-item:hover {
+            transform: translateX(10px);
+        }
+        .toc-number {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 15px rgba(49, 130, 206, 0.3);
+        }
+        .side-decoration {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background: linear-gradient(to left, rgba(49, 130, 206, 0.1), transparent);
+            z-index: 0;
+        }
+        .dot-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: radial-gradient(#3182CE 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .sub-item {
+            position: relative;
+            padding-left: 20px;
+        }
+        .sub-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 10px;
+            height: 2px;
+            background: #3182CE;
+            transform: translateY(-50%);
+        }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col p-16 relative">
+        <!-- Background decorations -->
+        <div class="dot-pattern"></div>
+        <div class="side-decoration"></div>
+
+        <!-- Header -->
+        <div class="relative z-10">
+            <h1 class="slide-title text-5xl font-bold mb-2">목차</h1>
+            <div class="accent-line mb-12"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="grid grid-cols-12 gap-8 relative z-10">
+            <!-- Left: Main TOC -->
+            <div class="col-span-7 space-y-12">
+                <!-- Item 1 -->
+                <div class="toc-item flex items-center">
+                    <div class="toc-number w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl mr-6">
+                        1
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">필요성</h2>
+                        <p class="text-gray-600 mt-2">AI 리터러시의 중요성과 HRD 부서의 역할</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="toc-item flex items-start">
+                    <div class="toc-number w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-xl mr-6">
+                        2
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">에듀테크 기반 AI 시대 핵심 역량 개발 가이드라인</h2>
+                        <div class="mt-4 space-y-3">
+                            <div class="sub-item text-gray-600">AI 리터러시 수준 정의 및 진단</div>
+                            <div class="sub-item text-gray-600">AI 역량 강화를 위한 통합 교육</div>
+                            <div class="sub-item text-gray-600">비판적 사고 및 AI 결과 평가 능력 함양</div>
+                            <div class="sub-item text-gray-600">직무별 맞춤형 AI 활용 사례 학습 및 적용</div>
+                            <div class="sub-item text-gray-600">안전하고 몰입감 있는 실습 중심 학습 환경</div>
+                            <div class="sub-item text-gray-600">지속적인 학습 및 최신 AI 동향 공유</div>
+                            <div class="sub-item text-gray-600">AI 역량 내재화 및 성과 연계</div>
+                            <div class="sub-item text-gray-600">HRD 담당자의 AI 리터러시</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="toc-item flex items-center">
+                    <div class="toc-number w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl mr-6">
+                        3
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">참고문헌</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Visual Elements -->
+            <div class="col-span-5 flex items-center justify-center relative">
+                <div class="relative w-full h-full">
+                    <!-- Circular elements -->
+                    <div class="absolute top-10 right-10 w-32 h-32 rounded-full bg-blue-100 opacity-50"></div>
+                    <div class="absolute top-40 right-40 w-48 h-48 rounded-full bg-blue-200 opacity-40"></div>
+                    <div class="absolute bottom-20 right-20 w-56 h-56 rounded-full bg-blue-300 opacity-30"></div>
+
+                    <!-- Main icon elements -->
+                    <div class="absolute top-1/4 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center text-blue-600 text-3xl">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="absolute top-1/2 right-1/3 transform translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center text-blue-600 text-3xl">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="absolute bottom-1/3 right-1/2 transform translate-x-1/2 translateY-1/2 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center text-blue-600 text-3xl">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translateY-1/2 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center text-blue-600 text-3xl">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
+</body>
+</html>
+
+##################################################
+### FILE: ./2025봄학기/에듀테크프로그램개발방법론/navigation.js
+##################################################
+
+// navigation.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 슬라이드 파일 목록 (파일명 및 순서가 정확해야 함)
+    const slides = [
+        '01_표지_에듀테크_핵심_역량개발_가이드라인.html',
+        '02_목차.html',
+        '03_필요성_AI시대_에듀테크_HRD_역할.html',
+        '04_가이드라인_리터러시_진단과_통합교육.html',
+        '05_가이드라인_비판적사고와_직무별_활용학습.html',
+        '06_가이드라인_실습환경과_지속학습.html',
+        '07_가이드라인_성과연계와_HRD역량.html',
+        '08_참고문헌.html',
+        '09_마무리_감사합니다.html'
+    ];
+
+    // 현재 페이지 파일명 가져오기 (URL 경로에서 마지막 부분 추출)
+    const currentPath = window.location.pathname;
+    // URL 인코딩된 문자를 디코딩 (한글 파일명 등 처리)
+    const currentPage = decodeURIComponent(currentPath.substring(currentPath.lastIndexOf('/') + 1));
+
+    // 현재 페이지의 인덱스 찾기
+    const currentIndex = slides.indexOf(currentPage);
+
+    // 현재 페이지가 목록에 없으면 아무것도 안 함
+    if (currentIndex === -1) {
+        console.error("현재 슬라이드를 목록에서 찾을 수 없습니다:", currentPage);
+        return;
+    }
+
+    // 이전/다음 페이지 인덱스 계산
+    const prevIndex = currentIndex - 1;
+    const nextIndex = currentIndex + 1;
+
+    // 이전/다음 페이지 파일명 결정 (범위를 벗어나면 null)
+    const prevPage = prevIndex >= 0 ? slides[prevIndex] : null;
+    const nextPage = nextIndex < slides.length ? slides[nextIndex] : null;
+
+    // 네비게이션 UI 생성
+    const navContainer = document.createElement('div');
+    navContainer.className = 'slide-navigation'; // CSS 스타일링을 위한 클래스
+
+    // '이전' 버튼/링크 생성
+    if (prevPage) {
+        const prevLink = document.createElement('a');
+        prevLink.href = prevPage;
+        prevLink.className = 'nav-button prev';
+        prevLink.innerHTML = '<i class="fas fa-arrow-left"></i> 이전';
+        navContainer.appendChild(prevLink);
+    } else {
+        // 첫 페이지일 경우 비활성화된 버튼 표시 (선택 사항)
+        const prevPlaceholder = document.createElement('span');
+        prevPlaceholder.className = 'nav-button prev disabled';
+        prevPlaceholder.innerHTML = '<i class="fas fa-arrow-left"></i> 이전';
+        navContainer.appendChild(prevPlaceholder);
+    }
+
+    // '다음' 버튼/링크 생성
+    if (nextPage) {
+        const nextLink = document.createElement('a');
+        nextLink.href = nextPage;
+        nextLink.className = 'nav-button next';
+        nextLink.innerHTML = '다음 <i class="fas fa-arrow-right"></i>';
+        navContainer.appendChild(nextLink);
+    } else {
+        // 마지막 페이지일 경우 비활성화된 버튼 표시 (선택 사항)
+        const nextPlaceholder = document.createElement('span');
+        nextPlaceholder.className = 'nav-button next disabled';
+        nextPlaceholder.innerHTML = '다음 <i class="fas fa-arrow-right"></i>';
+        navContainer.appendChild(nextPlaceholder);
+    }
+
+    // 생성된 네비게이션 UI를 body 끝에 추가
+    document.body.appendChild(navContainer);
+
+    // --- 키보드 네비게이션 ---
+    document.addEventListener('keydown', (event) => {
+        // 왼쪽 화살표 클릭 시 이전 페이지로 (이전 페이지가 있을 경우)
+        if (event.key === 'ArrowLeft' && prevPage) {
+            window.location.href = prevPage;
+        }
+        // 오른쪽 화살표 클릭 시 다음 페이지로 (다음 페이지가 있을 경우)
+        else if (event.key === 'ArrowRight' && nextPage) {
+            window.location.href = nextPage;
+        }
+    });
+});
+
+
