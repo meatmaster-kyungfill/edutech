@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발도상국 IT 직업교육 혁신을 위한 역량 강화 연수 프로그램 제안</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .challenge-card {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- Header Bar -->
+        <div class="header-bar"></div>
+        
+        <!-- Slide Content -->
+        <div class="flex flex-col p-12 h-full">
+            <!-- Slide Title -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">현황 및 필요성</h2>
+                <div class="w-20 h-1 bg-blue-500 mt-2"></div>
+            </div>
+            
+            <!-- Main Content: Two-Column Layout -->
+            <div class="flex flex-1 gap-6">
+                <!-- Left Column: Challenges -->
+                <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
+                        개발도상국 IT 직업교육의 현실적 어려움
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="challenge-card p-3 rounded">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-server text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">제한된 IT 인프라</h4>
+                                    <p class="text-gray-600 text-sm">고가의 하드웨어·소프트웨어 구축 및 유지보수 비용 부담</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-card p-3 rounded">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-user-graduate text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">전문 교육인력 부족</h4>
+                                    <p class="text-gray-600 text-sm">최신 기술 교육을 위한 현지 전문 강사진 확보 어려움</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-card p-3 rounded">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-book text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">최신 교육과정 부재</h4>
+                                    <p class="text-gray-600 text-sm">산업 수요와 괴리된 커리큘럼과 교수법</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-card p-3 rounded">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-globe text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">글로벌 역량 교육 한계</h4>
+                                    <p class="text-gray-600 text-sm">국제 협업 및 창업 교육 관련 노하우 부족</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Opportunity & Need -->
+                <div class="flex-1 flex flex-col">
+                    <!-- Opportunities Section -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+                            <i class="fas fa-lightbulb text-amber-400 mr-2"></i>
+                            현대 기술 활용의 기회
+                        </h3>
+                        
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-white rounded-full p-2 mr-3 shadow-sm">
+                                    <i class="fas fa-cloud text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">클라우드 컴퓨팅</h4>
+                                    <p class="text-gray-600 text-sm">물리적 인프라 구축 없이 저비용으로 최신 IT 교육 환경 제공</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-white rounded-full p-2 mr-3 shadow-sm">
+                                    <i class="fas fa-laptop-code text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">에듀테크 솔루션</h4>
+                                    <p class="text-gray-600 text-sm">오픈소스 기반 교육 도구로 학습 경험 향상 및 교육 효율성 증대</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Needs Section -->
+                    <div class="bg-blue-700 text-white p-5 rounded-lg mt-auto">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center">
+                            <i class="fas fa-flag mr-2"></i>
+                            연수의 필요성
+                        </h3>
+                        
+                        <p class="mb-4">
+                            개발도상국 IT 직업교육의 어려움을 첨단 기술로 극복하고, 교육의 질을 향상시킬 수 있는 <span class="font-bold underline">전문가 양성이 시급</span>합니다.
+                        </p>
+                        
+                        <div class="flex items-center justify-between bg-blue-800 p-3 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-2xl mr-3"></i>
+                                <div>
+                                    <div class="font-semibold">IT 교육 혁신을 주도할 핵심 인력 육성</div>
+                                    <div class="text-sm opacity-80">현지 교육 기관의 지속가능한 변화 창출</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
