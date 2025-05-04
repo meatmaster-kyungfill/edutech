@@ -4,7 +4,7 @@
 # 기능: 현재 디렉토리의 'page_*.html' 파일들을 찾아서 내용을 'combined_slides.txt' 파일 하나로 합칩니다.
 
 OUTPUT_FILE="combined_slides.txt"
-SOURCE_FILES="page_*.html"
+SOURCE_FILES="*.html"
 
 echo "'${SOURCE_FILES}' 파일들을 '${OUTPUT_FILE}' 파일로 합치는 작업을 시작합니다..."
 

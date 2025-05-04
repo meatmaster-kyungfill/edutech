@@ -37,7 +37,7 @@
             top: 0;
             left: 0;
             opacity: 0.07;
-            background-image: 
+            background-image:
                 radial-gradient(circle, #3182CE 1px, transparent 1px),
                 radial-gradient(circle, #3182CE 1px, transparent 1px);
             background-size: 30px 30px;
@@ -61,6 +61,58 @@
             gap: 15px;
             opacity: 0.7;
         }
+
+        /* --- 슬라이드 네비게이션 스타일 --- */
+        .slide-navigation {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px;    /* 하단에서 20px */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* 양쪽 끝으로 버튼 배치 */
+            padding: 0 40px; /* 좌우 여백 */
+            z-index: 1000;   /* 다른 요소 위에 표시 */
+            pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 클릭되도록 */
+        }
+
+        .nav-button {
+            background-color: rgba(44, 82, 130, 0.85); /* 반투명 배경 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px; /* 둥근 버튼 */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            align-items: center;
+            gap: 8px; /* 아이콘과 텍스트 간격 */
+            pointer-events: auto; /* 버튼 클릭 가능하도록 설정 */
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(49, 130, 206, 1); /* 호버 시 색상 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+
+        .nav-button.disabled {
+            background-color: rgba(150, 150, 150, 0.7); /* 비활성화 시 회색 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none; /* 클릭 안 되도록 */
+        }
+
+        .nav-button.disabled:hover {
+            background-color: rgba(150, 150, 150, 0.7);
+            transform: none; /* 호버 효과 제거 */
+        }
+
+        .nav-button i { /* Font Awesome 아이콘 */
+            font-size: 1em;
+        }
+        /* --- 슬라이드 네비게이션 스타일 끝 --- */
     </style>
 </head>
 <body>
@@ -69,19 +121,19 @@
         <div class="tech-pattern"></div>
         <div class="blue-accent" style="top: -100px; left: -100px;"></div>
         <div class="blue-accent" style="bottom: -150px; right: -50px;"></div>
-        
+
         <!-- Main Content -->
         <div class="title-box text-center px-12 py-10 rounded-xl backdrop-filter backdrop-blur-sm bg-white bg-opacity-30 border border-gray-200 shadow-xl">
             <span class="inline-block mb-4 px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-full">AI 시대의 역량 개발</span>
-            
+
             <h1 class="text-6xl font-black mb-6 blue-gradient-text tracking-tight leading-tight">
                 에듀테크 핵심 역량개발<br>가이드라인
             </h1>
-            
+
             <p class="text-2xl text-gray-700 mb-6 font-medium">
                 (대상: 기업 HRD 담당자)
             </p>
-            
+
             <div class="mt-16 pt-6 border-t border-gray-300 flex items-center justify-center">
                 <div class="flex items-center">
                     <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white mr-4">
@@ -94,7 +146,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Technology Icons -->
         <div class="icon-grid">
             <div class="w-16 h-16 rounded-lg bg-white bg-opacity-70 shadow-md flex items-center justify-center text-blue-600 text-2xl">
@@ -117,5 +169,7 @@
             </div>
         </div>
     </div>
+
+    <script src="navigation.js" defer></script> <!-- 네비게이션 스크립트 추가 -->
 </body>
 </html>

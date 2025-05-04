@@ -2231,4 +2231,52 @@ flowchart TD
         </div>
     </div>
 </body>
+</html><!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프레젠테이션 목차</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 900px; margin: 20px auto; }
+        h1 { border-bottom: 2px solid #3182CE; padding-bottom: 10px; color: #2C5282; }
+        ol { padding-left: 0; list-style: none; }
+        li { margin-bottom: 12px; background-color: #f7fafc; border-radius: 5px; border-left: 5px solid #63B3ED; }
+        li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #2C5282;
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        li a:hover {
+            background-color: #e2e8f0;
+            color: #1A365D;
+            transform: translateX(5px);
+        }
+        li .slide-number {
+            display: inline-block;
+            width: 25px; /* Fixed width for alignment */
+            text-align: right;
+            margin-right: 10px;
+            font-weight: bold;
+            color: #3182CE;
+        }
+    </style>
+</head>
+<body>
+    <h1>슬라이드 목록</h1>
+    <ol>
+        <li><a href="01_표지_에듀테크_핵심_역량개발_가이드라인.html"><span class="slide-number">1.</span>표지: 에듀테크 핵심 역량개발 가이드라인</a></li>
+        <li><a href="02_목차.html"><span class="slide-number">2.</span>목차</a></li>
+        <li><a href="03_필요성_AI시대_에듀테크_HRD_역할.html"><span class="slide-number">3.</span>필요성: AI 시대 에듀테크 기반 HRD의 역할</a></li>
+        <li><a href="04_가이드라인_리터러시_진단과_통합교육.html"><span class="slide-number">4.</span>가이드라인 (1): 리터러시 진단 및 통합 교육</a></li>
+        <li><a href="05_가이드라인_비판적사고와_직무별_활용학습.html"><span class="slide-number">5.</span>가이드라인 (2): 비판적 사고 및 직무별 활용 학습</a></li>
+        <li><a href="06_가이드라인_실습환경과_지속학습.html"><span class="slide-number">6.</span>가이드라인 (3): 실습 환경 및 지속 학습</a></li>
+        <li><a href="07_가이드라인_성과연계와_HRD역량.html"><span class="slide-number">7.</span>가이드라인 (4): 역량 내재화 및 HRD 리터러시</a></li>
+        <li><a href="08_참고문헌.html"><span class="slide-number">8.</span>참고문헌</a></li>
+        <li><a href="09_마무리_감사합니다.html"><span class="slide-number">9.</span>마무리: 감사합니다</a></li>
+    </ol>
+</body>
 </html>
