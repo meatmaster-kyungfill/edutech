@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마무리 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .thank-you {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 2px 10px rgba(49, 130, 206, 0.2);
+        }
+        .summary {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .tech-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.07;
+            background-image:
+                radial-gradient(circle, #3182CE 1px, transparent 1px),
+                radial-gradient(circle, #3182CE 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+        .blue-accent {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3182CE 0%, #90CDF4 100%);
+            filter: blur(70px);
+            opacity: 0.4;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Changed from 3 to 5 to match icons */
+            gap: 15px;
+        }
+        .pulsate {
+            animation: pulsate 2s infinite;
+        }
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .rotate-slow {
+            animation: rotate 12s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex items-center justify-center">
+        <!-- Background Elements -->
+        <div class="tech-pattern"></div>
+        <div class="blue-accent w-[500px] h-[500px]" style="top: -200px; right: -200px;"></div>
+        <div class="blue-accent w-[400px] h-[400px]" style="bottom: -150px; left: -150px;"></div>
+
+        <!-- Main Content -->
+        <!-- Added pb-32 here -->
+        <div class="relative z-10 text-center px-20 pb-32">
+            <div class="mb-8 flex justify-center">
+                <!-- Circular animation element -->
+                <div class="relative w-32 h-32">
+                    <div class="absolute inset-0 bg-blue-200 rounded-full opacity-20 rotate-slow"></div>
+                    <div class="absolute inset-2 bg-blue-300 rounded-full opacity-30 rotate-slow" style="animation-direction: reverse;"></div>
+                    <div class="absolute inset-4 bg-blue-400 rounded-full opacity-40 rotate-slow"></div>
+                    <div class="absolute inset-0 w-full h-full flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-blue-600 text-5xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="thank-you text-7xl font-black mb-10 pulsate">감사합니다</h1>
+
+            <div class="summary p-8 mb-10 max-w-4xl mx-auto">
+                <p class="text-3xl font-medium text-blue-900 leading-relaxed">
+                    <i class="fas fa-quote-left text-blue-400 mr-3 opacity-50"></i>
+                    AI 시대의 성공적인 인재 양성은 HRD 담당자의 에듀테크 전문성에 달려있으며,<br>
+                    이는 조직의 디지털 전환과 경쟁력 강화의 핵심 동력입니다.
+                    <i class="fas fa-quote-right text-blue-400 ml-3 opacity-50"></i>
+                </p>
+            </div>
+
+            <!-- Speaker Info -->
+            <div class="mt-16 inline-block bg-white bg-opacity-70 rounded-full px-8 py-4 shadow-lg">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white mr-4">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm text-gray-600">발표자</p>
+                        <p class="text-xl font-bold text-gray-800">문경필</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Decorations -->
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center opacity-70">
+             <!-- Note: You have 5 icons but defined grid-template-columns: repeat(3, 1fr);
+                  I've updated the CSS above to repeat(5, 1fr) to match the number of icons. -->
+            <div class="icon-grid">
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white bg-opacity-70 shadow-sm flex items-center justify-center text-blue-600 text-xl">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

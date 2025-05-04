@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가이드라인 세 번째 부분 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 4px;
+        }
+        .feature-card {
+            background-color: white;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3182CE;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(49, 130, 206, 0.2);
+        }
+        .icon-circle {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .tool-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex; /* Added flex */
+            flex-direction: column; /* Added flex */
+            justify-content: space-between; /* Added flex */
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .hexagon-container {
+             /* Container to manage spacing for the hexagon and text */
+             padding-top: 28.87px; /* Space for top point */
+             padding-bottom: 36px; /* Space for bottom point + text */
+             position: relative;
+             width: 100px; /* Match hexagon width */
+             margin: 0 auto; /* Center the container */
+         }
+
+        .hexagon {
+            position: relative;
+            width: 100px;
+            height: 57.74px; /* width * sqrt(3)/2 */
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+        }
+
+        .hexagon::before,
+        .hexagon::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 50px solid transparent; /* width/2 */
+            border-right: 50px solid transparent; /* width/2 */
+            left: 0;
+        }
+
+        .hexagon::before {
+            bottom: 100%;
+            border-bottom: 28.87px solid #3182CE; /* height/2 */
+        }
+
+        .hexagon::after {
+            top: 100%;
+            border-top: 28.87px solid #63B3ED; /* height/2 */
+        }
+
+        .hexagon-text {
+            position: absolute;
+            bottom: 0; /* Position at the bottom of the container */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 4px 12px; /* Adjusted padding */
+            border-radius: 9999px; /* Fully rounded */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+
+        .learning-pillar {
+            position: relative;
+            min-height: 140px; /* Increased min-height slightly */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; /* Space between icon and text */
+            flex: 1;
+            margin: 0 4px; /* Reduced horizontal margin */
+            padding-bottom: 5px; /* Add padding at the bottom */
+        }
+        .learning-pillar::before {
+            content: '';
+            position: absolute;
+            top: 40px; /* Start below the icon */
+            left: 50%;
+            height: calc(100% - 80px - 5px); /* Adjusted height considering padding */
+            width: 3px;
+            background: linear-gradient(to bottom, #3182CE, #63B3ED);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .learning-pillar .icon-container {
+             width: 40px;
+             height: 40px;
+             margin-bottom: 12px; /* Increased space between icon and text */
+             z-index: 10;
+             flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+        .learning-pillar .text-container {
+            width: 95%; /* Adjust text width if necessary */
+            margin-top: auto; /* Push text towards the bottom */
+            z-index: 10;
+            background-color: white;
+            padding: 8px 4px; /* Adjust padding */
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .news-item {
+            border-left: 3px solid #3182CE;
+            padding-left: 16px; /* Increased padding */
+            margin-bottom: 12px; /* Increased spacing */
+            position: relative;
+        }
+        .news-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #3182CE;
+            border: 2px solid white; /* Add border to make it stand out */
+        }
+        /* Ensure IBM logo placeholder is visible */
+        .ibm-logo-placeholder {
+             width: 24px;
+             height: 24px;
+             background-color: #f0f0f0; /* Placeholder color */
+             border: 1px solid #ccc;
+             border-radius: 4px;
+             display: inline-block;
+             margin-right: 8px;
+             vertical-align: middle;
+         }
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="content-wrapper">
+            <!-- Header -->
+            <div class="mb-6">
+                <h1 class="section-title text-4xl font-bold">2. 에듀테크 기반 AI 시대 핵심 역량 개발 가이드라인</h1>
+                <div class="accent-line mt-2 mb-4"></div>
+            </div>
+
+            <!-- Main Content: Two Columns Layout -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: 실습 중심 학습 환경 제공 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4 flex-shrink-0">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">마. 실습 중심 학습 환경 제공</h2>
+                    </div>
+
+                    <!-- Key Point -->
+                    <div class="bg-blue-50 p-4 rounded-lg mb-5">
+                        <p class="text-blue-800 font-medium text-center text-base"> <!-- Adjusted text size -->
+                            <i class="fas fa-quote-left mr-2 text-blue-400"></i>
+                            실제적이고 몰입감 있는 프로젝트 기반 학습(PBL) 경험 제공
+                            <i class="fas fa-quote-right ml-2 text-blue-400"></i>
+                        </p>
+                    </div>
+
+                    <!-- Learning Environments -->
+                    <div class="grid grid-cols-2 gap-4 mb-5">
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <i class="fas fa-cloud text-blue-600 text-2xl"></i>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">클라우드 기반</h3>
+                                <p class="text-sm text-gray-600">AI 개발 플랫폼</p>
+                            </div>
+                        </div>
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <!-- Placeholder icon if specific one isn't right -->
+                                <i class="fas fa-chart-line text-blue-600 text-2xl"></i> 
+                            </div>
+                             <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">데이터 기반</h3>
+                                <p class="text-sm text-gray-600">분석 챌린지</p>
+                            </div>
+                        </div>
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <i class="fas fa-gamepad text-blue-600 text-2xl"></i>
+                            </div>
+                             <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">인터랙티브</h3>
+                                <p class="text-sm text-gray-600">시뮬레이션 게임</p>
+                            </div>
+                        </div>
+                        <div class="tool-card items-center p-4">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
+                                <i class="fas fa-project-diagram text-blue-600 text-2xl"></i>
+                            </div>
+                             <div class="text-center">
+                                <h3 class="font-bold text-gray-800 mb-1">프로젝트 기반</h3>
+                                <p class="text-sm text-gray-600">실무형 학습</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accessible Tools -->
+                    <div class="bg-gray-100 p-4 rounded-lg mt-auto"> <!-- Pushed to bottom -->
+                        <h3 class="font-bold text-lg text-gray-800 mb-3">
+                            <i class="fas fa-hand-point-right text-blue-500 mr-2"></i>
+                            접근성 높은 AI 학습 플랫폼
+                        </h3>
+                        <div class="space-y-2 sm:space-y-0 sm:flex sm:justify-between sm:items-center sm:gap-2">
+                            <div class="bg-white p-3 rounded-lg shadow-sm flex items-center w-full sm:w-auto">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" width="24" height="24" class="mr-2 flex-shrink-0" alt="Google">
+                                <span class="text-sm font-medium">Google Teachable Machine</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm flex items-center w-full sm:w-auto">
+                                <!-- Using a placeholder div for IBM logo -->
+                                <span class="ibm-logo-placeholder"></span>
+                                <span class="text-sm font-medium">IBM Machine Learning for Kids</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: 지속적인 학습 및 AI 동향 공유 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500 flex flex-col">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4 flex-shrink-0">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">바. 지속적인 학습 및 AI 동향 공유</h2>
+                    </div>
+
+                    <!-- Learning Ecosystem -->
+                    <div class="mb-6"> <!-- Adjusted margin -->
+                        <h3 class="font-bold text-lg text-gray-800 mb-4 text-center">
+                            <i class="fas fa-seedling text-green-500 mr-2"></i>
+                            에듀테크 기반 학습 생태계
+                        </h3>
+
+                        <div class="flex justify-around items-stretch mb-4"> <!-- Use items-stretch -->
+                             <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">AI 기술<br>뉴스 채널</p>
+                                </div>
+                            </div>
+
+                            <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">맞춤형<br>학습 알림</p>
+                                </div>
+                            </div>
+
+                            <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">전문가<br>웨비나</p>
+                                </div>
+                            </div>
+
+                            <div class="learning-pillar">
+                                <div class="icon-container bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="text-container text-center">
+                                    <p class="text-xs sm:text-sm font-medium">AI 전문가<br>CoP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LXP Center - Revised Approach -->
+                    <div class="flex justify-center my-6"> <!-- Adjusted margin -->
+                         <div class="hexagon-container">
+                             <div class="hexagon flex items-center justify-center">
+                                 <span class="text-white font-bold text-lg relative z-10">LXP</span>
+                             </div>
+                             <div class="hexagon-text">
+                                 <span class="text-sm font-medium text-blue-800">중앙 플랫폼</span>
+                             </div>
+                         </div>
+                     </div>
+
+                    <!-- Latest AI News Example -->
+                    <div class="mt-4 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-800 mb-4"> <!-- Increased margin -->
+                            <i class="fas fa-rss text-blue-500 mr-2"></i>
+                            최신 AI 동향 예시
+                        </h3>
+
+                        <div class="space-y-3"> <!-- Increased spacing -->
+                            <div class="news-item">
+                                <h4 class="text-sm font-bold mb-0.5">생성형 AI 기술 발전</h4>
+                                <p class="text-xs text-gray-600">멀티모달 생성 AI 모델의 최신 동향</p>
+                            </div>
+
+                            <div class="news-item">
+                                <h4 class="text-sm font-bold mb-0.5">AI 윤리 및 규제</h4>
+                                <p class="text-xs text-gray-600">주요 국가별 AI 규제 프레임워크 비교</p>
+                            </div>
+
+                            <div class="news-item">
+                                <h4 class="text-sm font-bold mb-0.5">산업별 AI 적용 사례</h4>
+                                <p class="text-xs text-gray-600">금융, 의료, 제조업의 AI 혁신 사례</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quote -->
+                    <div class="bg-blue-50 p-3 rounded-lg mt-6 border-l-4 border-blue-500"> <!-- Adjusted margin -->
+                        <p class="text-sm italic text-blue-800">
+                            "AI 분야는 빠르게 변화하므로 <span class="font-bold">지속적인 학습</span>이 필수적입니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

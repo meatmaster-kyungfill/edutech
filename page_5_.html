@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가이드라인 두 번째 부분 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 4px;
+        }
+        .feature-card {
+            background-color: white;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3182CE;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(49, 130, 206, 0.2);
+        }
+        .icon-circle {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px), 
+                            linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .skill-pill {
+            background-color: #EBF4FF;
+            color: #2C5282;
+            border-radius: 999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.2s ease;
+        }
+        .skill-pill:hover {
+            background-color: #3182CE;
+            color: white;
+        }
+        .interaction-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #3182CE;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .interaction-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid #3182CE;
+            transition: all 0.3s ease;
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+        
+        <div class="content-wrapper">
+            <!-- Header -->
+            <div class="mb-6">
+                <h1 class="section-title text-4xl font-bold">2. 에듀테크 기반 AI 시대 핵심 역량 개발 가이드라인</h1>
+                <div class="accent-line mt-2 mb-4"></div>
+            </div>
+            
+            <!-- Main Content: Two Columns Layout -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: 비판적 사고 및 AI 결과 평가 능력 함양 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">다. 비판적 사고 및 AI 결과 평가 능력 함양</h2>
+                    </div>
+                    
+                    <!-- Critical Thinking Components -->
+                    <div class="bg-blue-50 p-4 rounded-lg mb-5">
+                        <h3 class="text-lg font-bold text-blue-800 mb-3">AI 결과 평가 핵심 역량</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">사실 확인 능력</span>
+                            </div>
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">신뢰도 평가</span>
+                            </div>
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">편향성 인지</span>
+                            </div>
+                            <div class="flex items-start p-2 bg-white rounded shadow-sm">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">모델 강점/약점 분석</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Interactive Learning -->
+                    <div class="mb-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">
+                            <i class="fas fa-users text-blue-500 mr-2"></i>
+                            상호작용 촉진 에듀테크
+                        </h3>
+                        
+                        <div class="flex flex-wrap justify-center space-x-2 my-4">
+                            <div class="interaction-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="interaction-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="interaction-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="interaction-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3 mt-3">
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">AI 기반 지능형 피드백 시스템</h4>
+                                <p class="text-xs text-gray-600">실시간 학습 피드백 제공</p>
+                            </div>
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">LXP 내 토론 포럼</h4>
+                                <p class="text-xs text-gray-600">동료 간 의견 교환 및 협업</p>
+                            </div>
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">전문가 Q&A 세션</h4>
+                                <p class="text-xs text-gray-600">전문성 기반 학습 환경</p>
+                            </div>
+                            <div class="feature-card p-3 rounded-r-lg">
+                                <h4 class="font-bold text-blue-700 text-sm">소셜 러닝 그룹</h4>
+                                <p class="text-xs text-gray-600">집단 지성 활용 학습</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quote -->
+                    <div class="bg-gray-100 p-4 rounded-lg mt-4 border-l-4 border-blue-400">
+                        <p class="text-sm italic text-gray-700">
+                            "비판적 사고는 AI 시대에 더욱 중요해지는 <span class="font-bold">인간 고유의 핵심 역량</span>입니다."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right Column: 직무별 맞춤형 AI 활용 사례 학습 및 적용 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-5">
+                        <div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">라. 직무별 맞춤형 AI 활용 사례 학습</h2>
+                    </div>
+                    
+                    <!-- AI-based Personalization -->
+                    <div class="mb-5">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-3">
+                                <i class="fas fa-cogs text-blue-700 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-1">지능형 에듀테크 활용</h3>
+                                <p class="text-gray-700 text-sm">
+                                    AI 기반 콘텐츠 큐레이션 엔진으로 개인별 맞춤형 학습 경로 제공
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job-specific Content -->
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">
+                        <i class="fas fa-briefcase text-blue-500 mr-2"></i>
+                        직무별 AI 활용 사례
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">마케팅</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">컨텐츠 생성</span>
+                                <span class="skill-pill">타겟팅</span>
+                            </div>
+                        </div>
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">연구개발</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">데이터 분석</span>
+                                <span class="skill-pill">특허 검색</span>
+                            </div>
+                        </div>
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">고객서비스</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">챗봇 활용</span>
+                                <span class="skill-pill">응대 최적화</span>
+                            </div>
+                        </div>
+                        <div class="job-card">
+                            <h4 class="font-bold text-blue-700">인사</h4>
+                            <div class="flex flex-wrap mt-2">
+                                <span class="skill-pill">인재 매칭</span>
+                                <span class="skill-pill">성과 예측</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Application Methods -->
+                    <div class="bg-blue-50 p-4 rounded-lg mt-5">
+                        <h3 class="font-bold text-blue-800 mb-2">실무 적용 활성화 방안</h3>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 bg-white p-2 rounded-lg shadow-sm">
+                                <i class="fas fa-trophy text-yellow-500"></i>
+                                <span class="text-gray-700 text-sm">AI 활용 우수 사례 공모전</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white p-2 rounded-lg shadow-sm">
+                                <i class="fas fa-chalkboard-teacher text-blue-500"></i>
+                                <span class="text-gray-700 text-sm">직무별 AI 활용 워크숍</span>
+                            </div>
+                        </div>
+                        <div class="w-full h-[120px] mt-4">
+                            <canvas id="adoptionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Chart for AI Adoption by Department
+        window.onload = function() {
+            const ctx = document.getElementById('adoptionChart').getContext('2d');
+            const adoptionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['마케팅', '연구개발', '고객서비스', '인사', '재무', 'IT'],
+                    datasets: [{
+                        label: '직무별 AI 활용 수준',
+                        data: [75, 85, 70, 65, 60, 90],
+                        backgroundColor: [
+                            'rgba(49, 130, 206, 0.7)',
+                            'rgba(49, 130, 206, 0.8)',
+                            'rgba(49, 130, 206, 0.7)',
+                            'rgba(49, 130, 206, 0.6)',
+                            'rgba(49, 130, 206, 0.5)',
+                            'rgba(49, 130, 206, 0.9)'
+                        ],
+                        borderColor: [
+                            'rgba(49, 130, 206, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'AI 활용률 (%)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: '직무별 AI 활용 현황',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+</body>
+</html>

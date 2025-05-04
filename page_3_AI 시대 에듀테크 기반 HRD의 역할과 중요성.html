@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필요성 - 에듀테크 핵심 역량개발 가이드라인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Mermaid 최신 버전 또는 안정적인 버전 사용 권장 -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.0/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px; /* 내용에 따라 높이 자동 조절되도록 min-height 사용 */
+            overflow: hidden;
+            position: relative;
+            background-color: #f8fafc;
+            padding: 48px; /* px-12 */
+            display: flex; /* Flexbox 사용하여 중앙 정렬 등 용이하게 */
+            justify-content: center;
+            align-items: center; /* 수직 중앙 정렬 */
+        }
+        .slide-content-area { /* 실제 내용 영역 크기 제한 */
+             width: 100%;
+             max-width: 1152px; /* 1280px - 48px*2 padding */
+        }
+        .slide-title {
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-line {
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #2C5282, #3182CE);
+            border-radius: 5px;
+        }
+        .highlight-box {
+            border-left: 4px solid #3182CE;
+            background-color: rgba(49, 130, 206, 0.08);
+        }
+        .feature-card {
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.2);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #3182CE, #63B3ED);
+            box-shadow: 0 4px 15px rgba(49, 130, 206, 0.3);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(49, 130, 206, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(49, 130, 206, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%; /* slide-content-area 내부에서 꽉 차도록 */
+        }
+        /* Mermaid 다이어그램 크기 및 정렬 조정 */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 380px; /* 다이어그램 높이 확보 */
+            width: 100%;
+        }
+        .mermaid svg { /* SVG 크기 자동 조절 */
+           max-width: 100%;
+           height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Background pattern -->
+        <div class="bg-pattern"></div>
+
+        <div class="slide-content-area">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <div class="mb-8">
+                    <h1 class="slide-title text-4xl font-bold">1. 필요성</h1>
+                    <div class="accent-line mt-2 mb-6"></div>
+                    <!-- 부제 수정: 에듀테크 강조 -->
+                    <p class="text-xl text-gray-700 font-medium">AI 시대, <span class="font-semibold text-blue-700">에듀테크 기반</span> HRD의 역할과 중요성</p>
+                </div>
+
+                <!-- Main Content -->
+                <div class="grid grid-cols-12 gap-8">
+                    <!-- Left Column: Main Points -->
+                    <div class="col-span-7 space-y-6">
+                        <!-- Key Point 1: 에듀테크 필요성 추가 -->
+                        <div class="highlight-box p-4 rounded-r-lg">
+                            <h2 class="text-2xl font-bold text-blue-700 mb-2">AI 리터러시 - 선택이 아닌 필수</h2>
+                            <p class="text-gray-700">급속도로 발전하는 생성형 AI 기술이 조직의 업무 방식과 환경을 근본적으로 변화시키며 디지털 업무 공간의 표준으로 자리잡고 있습니다. <strong class="text-blue-600">따라서, 효과적인 인재 양성 및 조직 적응을 위해 최신 에듀테크를 활용한 교육 시스템 구축이 시급합니다.</strong></p>
+                        </div>
+
+                        <!-- Key Point 2: AI 리터러시 정의 -->
+                        <div class="flex items-start space-x-4 my-4">
+                            <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">AI 리터러시란?</h3>
+                                <ul class="mt-2 space-y-2 text-gray-700">
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>AI의 원리와 개념 이해</li>
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>결과물의 강점·약점 비판적 평가</li>
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>편향성 인식 및 윤리적 책임감</li>
+                                    <li><i class="fas fa-check text-blue-600 mr-2"></i>업무 가치 창출을 위한 올바른 활용</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Key Point 3: HRD 역할과 에듀테크 역량 강조 -->
+                        <div class="feature-card p-5 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">HRD 부서의 역할 중요성</h3>
+                            <p class="text-gray-700 mb-3">전사적인 AI 리터러시 함양이 시급한 과제로 떠오르면서, 인적 자원 개발(HRD) 부서의 역할은 그 어느 때보다 중요해졌습니다. <strong class="text-blue-600">특히, HRD 담당자가 최신 에듀테크 동향을 이해하고, 이를 활용하여 맞춤형 학습 경험을 설계하며, 교육 효과를 데이터 기반으로 분석/개선하는 역량이 필수적입니다.</strong></p>
+                            <div class="mt-4 bg-blue-50 p-3 rounded-lg">
+                                <!-- 파란색 박스 내용 수정: 에듀테크 통합 강조 -->
+                                <p class="text-blue-800 font-medium">최신 AI 기술과 <span class="font-semibold">에듀테크를 통합</span>한 효과적인 교육 프로그램 설계 및 운영 역량이 핵심</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visual Diagram (수정된 Mermaid 코드 적용) -->
+                    <div class="col-span-5">
+                        <div class="bg-white rounded-xl p-6 shadow-lg h-full flex flex-col">
+                            <h3 class="text-center text-xl font-bold text-gray-800 mb-4">AI와 에듀테크 기반 HRD</h3>
+                            <!-- 다이어그램 설명 추가 -->
+                            <p class="text-center text-sm text-gray-600 mb-4">AI 기술 발전은 에듀테크 혁신을 촉진하며, 이는 HRD 역량 강화를 통해 조직의 AI 리터러시 향상으로 이어집니다.</p>
+
+                            <!-- Mermaid 컨테이너 및 수정된 코드 -->
+                            <div class="mermaid-container">
+                                <div class="mermaid">
+flowchart TD
+    A[AI 기술 발전] --> B[에듀테크 혁신]
+    B --> C{교육 방식 변화}
+    C --> D[개인 맞춤형<br>학습 경로]
+    C --> E[지능형 학습<br>분석·피드백]
+    C --> F[스마트 콘텐츠<br>큐레이션]
+
+    %% gather_point 노드 및 관련 스타일 제거
+    %% D, E, F 노드를 직접 G 노드에 연결
+    D --> G[HRD 담당자<br>에듀테크 역량 강화]
+    E --> G
+    F --> G
+
+    G --> H[조직 AI 리터러시 향상]
+
+    %% 기존 노드 스타일 (유지)
+    style A fill:#e3f2fd,stroke:#90caf9
+    style B fill:#e3f2fd,stroke:#90caf9
+    style C fill:#fff9c4,stroke:#fff176
+    style D fill:#e8f5e9,stroke:#a5d6a7
+    style E fill:#e8f5e9,stroke:#a5d6a7
+    style F fill:#e8f5e9,stroke:#a5d6a7
+    style G fill:#ede7f6,stroke:#b39ddb
+    style H fill:#ffebee,stroke:#ef9a9a
+                                </div>
+                            </div>
+
+                            <div class="mt-6 text-center">
+                                <span class="inline-block px-4 py-2 bg-blue-600 text-white font-medium rounded-full">
+                                    HRD + 에듀테크 = 조직 경쟁력
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Quote: 에듀테크 강조 -->
+                <div class="mt-10 bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border-l-4 border-blue-500">
+                    <p class="text-blue-800 font-semibold">
+                        <i class="fas fa-quote-left text-blue-400 mr-2"></i>
+                        AI 시대의 성공적인 인재 양성은 HRD 부서가 최신 <span class="font-bold">에듀테크 동향</span>을 얼마나 잘 이해하고 전략적으로 활용하는지에 달려있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base', // 'neutral' 또는 'default' 등 다른 테마 시도 가능
+            flowchart: {
+                curve: 'basis', // 선 곡률
+                htmlLabels: true, // HTML 라벨 사용
+                useMaxWidth: true // 컨테이너 너비에 맞춤 (false로 변경하여 테스트 가능)
+            },
+            // 테마 변수 커스터마이징 (선택 사항)
+            themeVariables: {
+               fontSize: '14px'
+            }
+        });
+    </script>
+</body>
+</html>
