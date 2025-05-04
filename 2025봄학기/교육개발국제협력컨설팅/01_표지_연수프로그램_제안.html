@@ -21,7 +21,7 @@
             background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            position: relative;
+            position: relative; /* Added for absolute positioning context */
         }
         .gradient-bg {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -42,33 +42,46 @@
             <i class="fas fa-cloud tech-icon text-8xl" style="top: 15%; right: 10%;"></i>
             <i class="fas fa-graduation-cap tech-icon text-7xl" style="bottom: 20%; left: 15%;"></i>
             <i class="fas fa-globe-asia tech-icon text-8xl" style="bottom: 15%; right: 15%;"></i>
-            
+
             <!-- Title Content -->
             <div class="text-center z-10 max-w-4xl">
                 <!-- Presentation Title -->
                 <h1 class="text-5xl font-bold mb-8 leading-tight">개발도상국 IT 직업교육 혁신을 위한<br>역량 강화 연수 프로그램 제안</h1>
-                
+
                 <!-- Subtitle with Icon -->
                 <div class="flex items-center justify-center text-xl mb-16">
                     <i class="fas fa-chalkboard-teacher mr-2"></i>
                     <span>클라우드 및 에듀테크 기반 지속가능한 IT 교육 인프라 구축</span>
                 </div>
-                
+
                 <!-- Presenter Information -->
                 <div class="mt-auto pt-12">
                     <div class="flex items-center justify-center text-2xl">
                         <i class="fas fa-user-tie mr-3"></i>
                         <span class="font-medium">발표자: 문경필</span>
                     </div>
-                    
+
                     <div class="text-xl mt-3 opacity-80">
                         <span id="current-date"></span>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Bottom Design Element -->
             <div class="absolute bottom-0 left-0 w-full h-8 bg-white opacity-10"></div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="absolute bottom-4 right-4 flex space-x-3 text-lg z-20">
+            <!-- Previous Link (Omitted for first slide) -->
+            <!-- TOC Link -->
+            <a href="index.html" title="목차로 돌아가기" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-list-ul"></i>
+            </a>
+            <!-- Next Link -->
+            <a href="./02_현황_및_필요성.html" title="다음 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </div>
 

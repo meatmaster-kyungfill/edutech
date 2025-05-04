@@ -21,7 +21,7 @@
             background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            position: relative;
+            position: relative; /* Added for absolute positioning context */
         }
         .header-bar {
             height: 8px;
@@ -68,15 +68,15 @@
     <div class="slide-container flex flex-col">
         <!-- Header Bar -->
         <div class="header-bar"></div>
-        
+
         <!-- Slide Content -->
-        <div class="flex flex-col p-12 h-full">
+        <div class="flex flex-col p-12 h-full flex-grow"> <!-- Added flex-grow -->
             <!-- Slide Title -->
             <div class="mb-6"> <!-- Reduced margin -->
                 <h2 class="text-3xl font-bold text-gray-800">학습 방식 및 연수 일정</h2>
                 <div class="w-20 h-1 bg-blue-500 mt-2"></div>
             </div>
-            
+
             <!-- Two Column Layout -->
             <div class="grid grid-cols-12 gap-6 flex-1">
                 <!-- Left Column: Learning Methods -->
@@ -85,7 +85,7 @@
                         <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
                         주요 학습 방식
                     </h3>
-                    
+
                     <div class="space-y-3"> <!-- Reduced spacing -->
                         <div class="learning-method-card bg-blue-50 p-3 rounded-md"> <!-- Reduced padding -->
                             <div class="flex items-start">
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                          <div class="learning-method-card bg-blue-50 p-3 rounded-md">
                             <div class="flex items-start">
                                 <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="learning-method-card bg-blue-50 p-3 rounded-md">
                             <div class="flex items-start">
                                 <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                          <div class="learning-method-card bg-blue-50 p-3 rounded-md">
                             <div class="flex items-start">
                                 <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
@@ -160,14 +160,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Right Column: Schedule -->
                 <div class="col-span-7"> <!-- Adjusted column span -->
                     <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
                         <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
                         연수 일정 개요 (10일 과정)
                     </h3>
-                    
+
                     <!-- Timeline -->
                     <div class="mt-4 mb-3 timeline-container px-4"> <!-- Adjusted spacing -->
                         <div class="timeline-line"></div>
@@ -194,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Schedule Phases -->
                     <div class="space-y-2.5 mt-4"> <!-- Adjusted spacing -->
                         <div class="schedule-phase bg-white border-l-4 border-blue-500 p-3 rounded-r-md shadow-sm"> <!-- Reduced padding -->
@@ -210,7 +210,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="schedule-phase bg-white border-l-4 border-green-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
                                 <div class="bg-green-100 rounded-full p-1.5 mr-2">
@@ -224,7 +224,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="schedule-phase bg-white border-l-4 border-purple-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
                                 <div class="bg-purple-100 rounded-full p-1.5 mr-2">
@@ -238,7 +238,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="schedule-phase bg-white border-l-4 border-yellow-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
                                 <div class="bg-yellow-100 rounded-full p-1.5 mr-2">
@@ -252,7 +252,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="schedule-phase bg-white border-l-4 border-red-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
                                 <div class="bg-red-100 rounded-full p-1.5 mr-2">
@@ -267,9 +267,25 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-500 italic mt-3 text-center">※ 상세 일정은 <붙임1> 참조</p>
+                    <p class="text-xs text-gray-500 italic mt-3 text-center">※ 상세 일정은 &lt;붙임1&gt; 참조</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="absolute bottom-4 right-4 flex space-x-3 text-lg z-20">
+             <!-- Previous Link -->
+            <a href="./04_모듈_구성.html" title="이전 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <!-- TOC Link -->
+            <a href="index.html" title="목차로 돌아가기" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-list-ul"></i>
+            </a>
+            <!-- Next Link -->
+            <a href="./06_현장견학_및_벤치마킹.html" title="다음 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </div>
 </body>

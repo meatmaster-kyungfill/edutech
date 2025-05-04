@@ -21,7 +21,7 @@
             background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            position: relative;
+            position: relative; /* Added for absolute positioning context */
         }
         .header-bar {
             height: 8px;
@@ -61,15 +61,15 @@
     <div class="slide-container flex flex-col">
         <!-- Header Bar -->
         <div class="header-bar"></div>
-        
+
         <!-- Slide Content -->
-        <div class="flex flex-col p-12 h-full">
+        <div class="flex flex-col p-12 h-full flex-grow"> <!-- Added flex-grow -->
             <!-- Slide Title -->
             <div class="mb-6"> <!-- Reduced margin -->
                 <h2 class="text-3xl font-bold text-gray-800">기대 효과 및 결론</h2>
                 <div class="w-20 h-1 bg-blue-500 mt-2"></div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="grid grid-cols-12 gap-6 flex-1">
                 <!-- Left Column: Expected Effects -->
@@ -78,7 +78,7 @@
                         <i class="fas fa-chart-line text-blue-600 mr-2"></i>
                         주요 기대 효과
                     </h3>
-                    
+
                     <div class="space-y-3"> <!-- Reduced spacing -->
                         <div class="effect-card border-blue-500 bg-blue-50 p-3 rounded-md"> <!-- Reduced padding -->
                             <div class="flex items-start">
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="effect-card border-green-500 bg-green-50 p-3 rounded-md">
                             <div class="flex items-start">
                                 <div class="bg-white rounded-full p-2 flex-shrink-0 shadow-sm mr-2">
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="effect-card border-purple-500 bg-purple-50 p-3 rounded-md">
                             <div class="flex items-start">
                                 <div class="bg-white rounded-full p-2 flex-shrink-0 shadow-sm mr-2">
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="effect-card border-amber-500 bg-amber-50 p-3 rounded-md"> <!-- Corrected class name -->
                             <div class="flex items-start">
                                 <div class="bg-white rounded-full p-2 flex-shrink-0 shadow-sm mr-2">
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Right Column: Long-term Impact and Conclusion -->
                 <div class="col-span-5 flex flex-col"> <!-- Added flex flex-col -->
                     <div class="mb-5"> <!-- Reduced margin -->
@@ -149,7 +149,7 @@
                             <i class="fas fa-seedling text-blue-600 mr-2"></i> <!-- Changed icon -->
                             장기적 영향 (Impact)
                         </h3>
-                        
+
                         <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-lg shadow-md"> <!-- Reduced padding -->
                             <div class="space-y-2"> <!-- Reduced spacing -->
                                 <div class="impact-item">
@@ -179,14 +179,14 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Conclusion Section -->
                     <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mt-auto"> <!-- mt-auto -->
                         <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center"> <!-- Reduced margin -->
                             <i class="fas fa-flag-checkered text-blue-600 mr-2"></i>
                             결론
                         </h3>
-                        
+
                         <div class="bg-blue-50 p-3 rounded-lg mb-3"> <!-- Reduced padding/margin -->
                             <p class="text-gray-700 text-sm">
                                 본 연수 프로그램은 개발도상국의 IT 직업교육 혁신을 위한 <span class="font-semibold text-blue-800">실용적이고 지속가능한 접근법</span>을 제시합니다.
@@ -194,7 +194,7 @@
                                 참가자들이 자국 교육 현장의 <span class="font-semibold text-blue-800">실질적인 변화를 주도</span>하도록 지원합니다.
                             </p>
                         </div>
-                        
+
                         <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 rounded-lg"> <!-- Reduced padding -->
                             <div class="flex items-center">
                                 <i class="fas fa-handshake text-xl mr-2"></i> <!-- Adjusted size -->
@@ -210,13 +210,29 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quote at bottom -->
             <div class="mt-4 text-center"> <!-- Reduced margin -->
                 <p class="text-gray-500 italic text-xs"> <!-- Smaller text -->
                     "교육은 세상을 바꾸는 가장 강력한 무기이다." - 넬슨 만델라
                 </p>
             </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="absolute bottom-4 right-4 flex space-x-3 text-lg z-20">
+             <!-- Previous Link -->
+            <a href="./07_모니터링_및_평가.html" title="이전 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <!-- TOC Link -->
+            <a href="index.html" title="목차로 돌아가기" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-list-ul"></i>
+            </a>
+            <!-- Next Link -->
+            <a href="./09_감사합니다.html" title="다음 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </div>
 </body>

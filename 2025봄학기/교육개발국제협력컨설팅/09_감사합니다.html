@@ -21,7 +21,7 @@
             background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            position: relative;
+            position: relative; /* Added for absolute positioning context */
         }
         .gradient-bg {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -48,7 +48,7 @@
 <body>
     <div class="slide-container flex flex-col">
         <!-- Thank You Slide with Gradient Background -->
-        <div class="gradient-bg w-full min-h-720px flex flex-col justify-center items-center text-white p-16 relative">
+        <div class="gradient-bg w-full min-h-720px flex flex-col justify-center items-center text-white p-16 relative flex-grow"> <!-- Added flex-grow -->
             <!-- Background Tech Icons (Decorative) -->
             <i class="fas fa-laptop-code tech-icon" style="top: 10%; left: 5%;"></i>
             <i class="fas fa-cloud tech-icon" style="top: 20%; right: 10%;"></i>
@@ -56,20 +56,20 @@
             <i class="fas fa-globe-asia tech-icon" style="bottom: 25%; right: 15%;"></i>
             <i class="fas fa-chalkboard-teacher tech-icon" style="top: 40%; left: 20%;"></i>
             <i class="fas fa-lightbulb tech-icon" style="bottom: 40%; right: 25%;"></i>
-            
+
             <!-- Main Content -->
             <div class="text-center z-10 max-w-4xl">
                 <!-- Thank You Title -->
                 <h1 class="text-5xl font-bold mb-6">감사합니다</h1>
-                
+
                 <!-- Subtitle with Program Name -->
                 <div class="text-lg mb-8 opacity-90">
                     개발도상국 IT 직업교육 혁신을 위한 역량 강화 연수 프로그램 제안
                 </div>
-                
+
                 <!-- Divider -->
                 <div class="w-16 h-0.5 bg-white opacity-50 mx-auto my-5"></div>
-                
+
                 <!-- Key Reminder Message -->
                 <div class="bg-white bg-opacity-10 p-5 rounded-lg mb-10">
                     <p class="text-base leading-relaxed">
@@ -79,7 +79,7 @@
                         궁극적으로 <span class="font-bold">국가 경쟁력 강화</span>에 기여하고자 합니다.
                     </p>
                 </div>
-                
+
                 <!-- Contact Information -->
                 <div class="grid grid-cols-3 gap-5 mb-10">
                     <div class="contact-item bg-white bg-opacity-10 p-4 rounded-lg">
@@ -89,7 +89,7 @@
                             <div class="text-xs opacity-80">example@domain.com</div> <!-- Placeholder -->
                         </div>
                     </div>
-                    
+
                     <div class="contact-item bg-white bg-opacity-10 p-4 rounded-lg">
                         <div class="flex flex-col items-center">
                             <i class="fas fa-phone-alt text-xl mb-2"></i>
@@ -97,7 +97,7 @@
                             <div class="text-xs opacity-80">010-1234-5678</div> <!-- Placeholder -->
                         </div>
                     </div>
-                    
+
                     <div class="contact-item bg-white bg-opacity-10 p-4 rounded-lg">
                         <div class="flex flex-col items-center">
                             <i class="fas fa-globe text-xl mb-2"></i>
@@ -106,14 +106,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Questions & Discussion -->
                 <div class="flex items-center justify-center space-x-2 text-xl font-medium">
                     <i class="fas fa-comments"></i>
                     <span>질의 응답</span>
                 </div>
             </div>
-            
+
             <!-- Presenter Info (Bottom) - 이름만 표시되도록 수정 -->
             <div class="absolute bottom-8 flex items-center bg-white bg-opacity-10 px-5 py-2 rounded-full">
                 <div class="bg-white rounded-full w-10 h-10 flex items-center justify-center mr-3">
@@ -125,9 +125,22 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Footer Bar -->
         <div class="footer-bar mt-auto"></div>
+
+        <!-- Navigation Footer -->
+        <div class="absolute bottom-4 right-4 flex space-x-3 text-lg z-20">
+             <!-- Previous Link -->
+            <a href="./08_기대효과_및_결론.html" title="이전 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <!-- TOC Link -->
+            <a href="index.html" title="목차로 돌아가기" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-list-ul"></i>
+            </a>
+            <!-- Next Link (Omitted for last slide) -->
+        </div>
     </div>
 </body>
 </html>

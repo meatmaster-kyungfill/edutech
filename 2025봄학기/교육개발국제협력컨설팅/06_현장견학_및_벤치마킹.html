@@ -21,7 +21,7 @@
             background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            position: relative;
+            position: relative; /* Added for absolute positioning context */
         }
         .header-bar {
             height: 8px;
@@ -64,15 +64,15 @@
     <div class="slide-container flex flex-col">
         <!-- Header Bar -->
         <div class="header-bar"></div>
-        
+
         <!-- Slide Content -->
-        <div class="flex flex-col p-12 h-full">
+        <div class="flex flex-col p-12 h-full flex-grow"> <!-- Added flex-grow -->
             <!-- Slide Title -->
             <div class="mb-6"> <!-- Reduced margin -->
                 <h2 class="text-3xl font-bold text-gray-800">현장 견학 및 벤치마킹</h2>
                 <div class="w-20 h-1 bg-blue-500 mt-2"></div>
             </div>
-            
+
             <!-- Introduction Text -->
             <div class="mb-5"> <!-- Reduced margin -->
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-md"> <!-- Reduced padding -->
@@ -82,7 +82,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <!-- Two Column Layout -->
             <div class="grid grid-cols-12 gap-5 flex-1"> <!-- Reduced gap -->
                 <!-- Left Column: Visit Sites -->
@@ -91,7 +91,7 @@
                         <i class="fas fa-building text-blue-600 mr-2"></i>
                         주요 견학 기관 및 연계 모듈
                     </h3>
-                    
+
                     <div class="space-y-2.5"> <!-- Reduced spacing -->
                         <div class="visit-card border-blue-500 bg-white p-3 rounded-md shadow-sm"> <!-- Reduced padding -->
                             <div class="flex items-start">
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="visit-card border-green-500 bg-white p-3 rounded-md shadow-sm">
                             <div class="flex items-start">
                                 <div class="bg-green-100 rounded-full p-2 flex-shrink-0 mr-2">
@@ -120,7 +120,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="visit-card border-purple-500 bg-white p-3 rounded-md shadow-sm">
                             <div class="flex items-start">
                                 <div class="bg-purple-100 rounded-full p-2 flex-shrink-0 mr-2">
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="visit-card border-orange-500 bg-white p-3 rounded-md shadow-sm">
                             <div class="flex items-start">
                                 <div class="bg-orange-100 rounded-full p-2 flex-shrink-0 mr-2">
@@ -148,7 +148,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="visit-card border-red-500 bg-white p-3 rounded-md shadow-sm">
                             <div class="flex items-start">
                                 <div class="bg-red-100 rounded-full p-2 flex-shrink-0 mr-2">
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Right Column: Benefits and Expert Interaction -->
                 <div class="col-span-5">
                     <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm h-full flex flex-col"> <!-- Reduced padding -->
@@ -186,7 +186,7 @@
                             <i class="fas fa-lightbulb text-blue-600 mr-2"></i>
                             현장 견학의 핵심 가치
                         </h3>
-                        
+
                         <div class="space-y-2 mb-4"> <!-- Reduced spacing/margin -->
                             <div class="benefit-item">
                                 <div class="font-medium text-gray-800 text-sm">실제 운영 통찰력 획득</div>
@@ -213,20 +213,20 @@
                                 </p>
                             </div>
                         </div>
-                        
+
                         <!-- Expert Interaction -->
                         <div class="mt-auto">
                             <h4 class="font-medium text-blue-800 text-base mb-2 flex items-center"> <!-- Smaller title -->
                                 <i class="fas fa-comments text-blue-600 mr-1.5"></i>
                                 전문가 Q&A 및 피드백
                             </h4>
-                            
+
                             <div class="bg-blue-50 p-3 rounded-lg quote-container mb-3"> <!-- Reduced padding/margin -->
                                 <p class="text-gray-700 text-xs italic"> <!-- Smaller text -->
                                     견학 기관별 현장 전문가 Q&A 세션은 자국 상황에 맞는 구체적 조언과
                                     글로벌 협력 기회를 모색하는 핵심적인 기회가 될 것입니다.
                                 </p>
-                                
+
                                 <div class="mt-2 flex items-center border-t border-blue-200 pt-2"> <!-- Reduced spacing -->
                                     <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2"> <!-- Smaller icon bg -->
                                         <i class="fas fa-user-tie text-sm"></i>
@@ -239,7 +239,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Action Item -->
                             <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-2.5 rounded-md"> <!-- Reduced padding -->
                                 <div class="flex items-center">
@@ -256,6 +256,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="absolute bottom-4 right-4 flex space-x-3 text-lg z-20">
+            <!-- Previous Link -->
+            <a href="./05_학습방식_및_일정.html" title="이전 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <!-- TOC Link -->
+            <a href="index.html" title="목차로 돌아가기" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-list-ul"></i>
+            </a>
+            <!-- Next Link -->
+            <a href="./07_모니터링_및_평가.html" title="다음 슬라이드" class="text-gray-500 hover:text-blue-600 transition-colors">
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </div>
 </body>
