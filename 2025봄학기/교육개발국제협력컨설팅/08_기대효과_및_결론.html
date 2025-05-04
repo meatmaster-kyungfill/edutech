@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발도상국 IT 직업교육 혁신을 위한 역량 강화 연수 프로그램 제안</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .effect-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6; /* Default blue border */
+        }
+        .effect-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px -3px rgba(0, 0, 0, 0.07);
+        }
+        .effect-card.border-blue-500 { border-color: #3b82f6; }
+        .effect-card.border-green-500 { border-color: #10b981; }
+        .effect-card.border-purple-500 { border-color: #8b5cf6; }
+        .effect-card.border-amber-500 { border-color: #f59e0b; } /* Corrected class name */
+
+        .impact-item {
+            position: relative;
+            padding-left: 20px; /* Reduced padding */
+        }
+        .impact-item:before {
+            content: "\f14a"; /* Font Awesome check-circle icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 5px; /* Adjusted position */
+            font-size: 14px; /* Icon size */
+            color: white; /* White icon */
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- Header Bar -->
+        <div class="header-bar"></div>
+        
+        <!-- Slide Content -->
+        <div class="flex flex-col p-12 h-full">
+            <!-- Slide Title -->
+            <div class="mb-6"> <!-- Reduced margin -->
+                <h2 class="text-3xl font-bold text-gray-800">기대 효과 및 결론</h2>
+                <div class="w-20 h-1 bg-blue-500 mt-2"></div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="grid grid-cols-12 gap-6 flex-1">
+                <!-- Left Column: Expected Effects -->
+                <div class="col-span-7">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center"> <!-- Reduced margin -->
+                        <i class="fas fa-chart-line text-blue-600 mr-2"></i>
+                        주요 기대 효과
+                    </h3>
+                    
+                    <div class="space-y-3"> <!-- Reduced spacing -->
+                        <div class="effect-card border-blue-500 bg-blue-50 p-3 rounded-md"> <!-- Reduced padding -->
+                            <div class="flex items-start">
+                                <div class="bg-white rounded-full p-2 flex-shrink-0 shadow-sm mr-2">
+                                    <i class="fas fa-user-graduate text-blue-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">참가자 핵심 역량 강화</div>
+                                    <p class="text-gray-600 text-xs">
+                                        클라우드/에듀테크 <span class="font-semibold">활용 능력</span>, 실무 교육 <span class="font-semibold">개발/운영 능력</span>,
+                                        글로벌 역량/창업 <span class="font-semibold">지도 능력</span> 등 IT 교육 혁신 리더십 함양
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="effect-card border-green-500 bg-green-50 p-3 rounded-md">
+                            <div class="flex items-start">
+                                <div class="bg-white rounded-full p-2 flex-shrink-0 shadow-sm mr-2">
+                                    <i class="fas fa-school text-green-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">IT 직업 교육 품질 향상</div>
+                                    <p class="text-gray-600 text-xs">
+                                        저비용·고효율의 <span class="font-semibold">현대적 교육 환경 구축</span> 촉진, 학습 기회 확대 및
+                                        교육 <span class="font-semibold">접근성·실효성 증대</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="effect-card border-purple-500 bg-purple-50 p-3 rounded-md">
+                            <div class="flex items-start">
+                                <div class="bg-white rounded-full p-2 flex-shrink-0 shadow-sm mr-2">
+                                    <i class="fas fa-industry text-purple-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">산업-교육 연계 강화</div>
+                                    <p class="text-gray-600 text-xs">
+                                        <span class="font-semibold">현지 산업 수요 맞춤형</span> 실무 인재 양성,
+                                        졸업생 <span class="font-semibold">취업률 및 현장 적응력 제고</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="effect-card border-amber-500 bg-amber-50 p-3 rounded-md"> <!-- Corrected class name -->
+                            <div class="flex items-start">
+                                <div class="bg-white rounded-full p-2 flex-shrink-0 shadow-sm mr-2">
+                                    <i class="fas fa-globe-asia text-amber-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">국가 경제 발전 기여</div>
+                                    <p class="text-gray-600 text-xs">
+                                        경쟁력 있는 IT 인력 양성을 통한 <span class="font-semibold">국가 디지털 전환 촉진</span> 및
+                                        <span class="font-semibold">지속가능한 경제 성장</span> 기반 마련
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Long-term Impact and Conclusion -->
+                <div class="col-span-5 flex flex-col"> <!-- Added flex flex-col -->
+                    <div class="mb-5"> <!-- Reduced margin -->
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center"> <!-- Reduced margin -->
+                            <i class="fas fa-seedling text-blue-600 mr-2"></i> <!-- Changed icon -->
+                            장기적 영향 (Impact)
+                        </h3>
+                        
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-lg shadow-md"> <!-- Reduced padding -->
+                            <div class="space-y-2"> <!-- Reduced spacing -->
+                                <div class="impact-item">
+                                    <div class="font-medium text-sm">자생적 IT 교육 혁신 생태계</div>
+                                    <p class="opacity-90 text-xs">
+                                        연수 참가자 주도의 지식 전파 및 지속적인 개선 활동 촉진
+                                    </p>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="font-medium text-sm">디지털 격차 해소 기여</div>
+                                    <p class="opacity-90 text-xs">
+                                        클라우드/에듀테크 기반 저비용 교육 확산으로 교육 접근성 향상
+                                    </p>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="font-medium text-sm">IT 기반 창업 활성화</div>
+                                    <p class="opacity-90 text-xs">
+                                        지역 문제 해결형 창업 지원 및 현지 스타트업 생태계 조성 기여
+                                    </p>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="font-medium text-sm">글로벌 협력 네트워크 강화</div>
+                                    <p class="opacity-90 text-xs">
+                                        참가국 간 및 한국과의 지속적인 교류 협력 체계 구축 및 발전
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Conclusion Section -->
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mt-auto"> <!-- mt-auto -->
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center"> <!-- Reduced margin -->
+                            <i class="fas fa-flag-checkered text-blue-600 mr-2"></i>
+                            결론
+                        </h3>
+                        
+                        <div class="bg-blue-50 p-3 rounded-lg mb-3"> <!-- Reduced padding/margin -->
+                            <p class="text-gray-700 text-sm">
+                                본 연수 프로그램은 개발도상국의 IT 직업교육 혁신을 위한 <span class="font-semibold text-blue-800">실용적이고 지속가능한 접근법</span>을 제시합니다.
+                                제한된 자원 환경에서 최신 기술을 효과적으로 활용하는 <span class="font-semibold text-blue-800">핵심 역량을 강화</span>하여,
+                                참가자들이 자국 교육 현장의 <span class="font-semibold text-blue-800">실질적인 변화를 주도</span>하도록 지원합니다.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 rounded-lg"> <!-- Reduced padding -->
+                            <div class="flex items-center">
+                                <i class="fas fa-handshake text-xl mr-2"></i> <!-- Adjusted size -->
+                                <div>
+                                    <div class="font-medium text-sm">성공적 추진을 위한 제언</div>
+                                    <p class="text-xs opacity-90">
+                                        개발도상국 IT 교육 발전과 디지털 경쟁력 강화를 위한 본 연수 프로그램의
+                                        원활한 운영 및 성과 확산을 위한 관심과 지원을 요청드립니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quote at bottom -->
+            <div class="mt-4 text-center"> <!-- Reduced margin -->
+                <p class="text-gray-500 italic text-xs"> <!-- Smaller text -->
+                    "교육은 세상을 바꾸는 가장 강력한 무기이다." - 넬슨 만델라
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

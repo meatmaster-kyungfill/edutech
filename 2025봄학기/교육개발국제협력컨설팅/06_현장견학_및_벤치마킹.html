@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발도상국 IT 직업교육 혁신을 위한 역량 강화 연수 프로그램 제안</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .visit-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6; /* Default blue border */
+        }
+        .visit-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px -3px rgba(0, 0, 0, 0.07);
+        }
+        .visit-card.border-blue-500 { border-color: #3b82f6; }
+        .visit-card.border-green-500 { border-color: #10b981; }
+        .visit-card.border-purple-500 { border-color: #8b5cf6; }
+        .visit-card.border-orange-500 { border-color: #f59e0b; }
+        .visit-card.border-red-500 { border-color: #ef4444; }
+        .benefit-item {
+            position: relative;
+            padding-left: 20px; /* Reduced padding */
+        }
+        .benefit-item:before {
+            content: "\f058"; /* Check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 5px; /* Adjusted position */
+            width: 14px; /* Icon width */
+            height: 14px; /* Icon height */
+            font-size: 14px; /* Icon size */
+            color: #3b82f6;
+        }
+        .quote-container { position: relative; }
+        .quote-container:before { content: '"'; position: absolute; top: -15px; left: -8px; font-size: 48px; color: #dbeafe; font-family: Georgia, serif; } /* Adjusted quote */
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- Header Bar -->
+        <div class="header-bar"></div>
+        
+        <!-- Slide Content -->
+        <div class="flex flex-col p-12 h-full">
+            <!-- Slide Title -->
+            <div class="mb-6"> <!-- Reduced margin -->
+                <h2 class="text-3xl font-bold text-gray-800">현장 견학 및 벤치마킹</h2>
+                <div class="w-20 h-1 bg-blue-500 mt-2"></div>
+            </div>
+            
+            <!-- Introduction Text -->
+            <div class="mb-5"> <!-- Reduced margin -->
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-md"> <!-- Reduced padding -->
+                    <p class="text-gray-700 text-sm">
+                        이론 학습을 넘어 <span class="font-bold">실제 운영 사례를 직접 경험</span>하고 전문가와 소통하며 현지 적용 아이디어를 얻습니다.
+                        각 모듈 목표와 연계된 기관 방문을 통해 <span class="font-bold">실질적인 벤치마킹 기회</span>를 제공합니다.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Two Column Layout -->
+            <div class="grid grid-cols-12 gap-5 flex-1"> <!-- Reduced gap -->
+                <!-- Left Column: Visit Sites -->
+                <div class="col-span-7">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center"> <!-- Reduced margin -->
+                        <i class="fas fa-building text-blue-600 mr-2"></i>
+                        주요 견학 기관 및 연계 모듈
+                    </h3>
+                    
+                    <div class="space-y-2.5"> <!-- Reduced spacing -->
+                        <div class="visit-card border-blue-500 bg-white p-3 rounded-md shadow-sm"> <!-- Reduced padding -->
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 flex-shrink-0 mr-2"> <!-- Smaller icon bg -->
+                                    <i class="fas fa-school text-blue-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">IT 직업/기술 학교 (모듈 1, 3)</div>
+                                    <p class="text-gray-600 text-xs">
+                                        클라우드 기반 실습/수업 참관, 도입/운영 사례(성공/개선점) 공유, PBL 적용 방안 탐색
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visit-card border-green-500 bg-white p-3 rounded-md shadow-sm">
+                            <div class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-2 flex-shrink-0 mr-2">
+                                    <i class="fas fa-hands-helping text-green-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">클라우드 기업 / ODA 기관 (모듈 1)</div>
+                                    <p class="text-gray-600 text-xs">
+                                        교육 지원 프로그램(무료 크레딧, 자료 등) 소개, 협력 프로세스 안내 및 네트워킹
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visit-card border-purple-500 bg-white p-3 rounded-md shadow-sm">
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 rounded-full p-2 flex-shrink-0 mr-2">
+                                    <i class="fas fa-laptop-code text-purple-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">에듀테크 기업/연구소/선도 학교 (모듈 2)</div>
+                                    <p class="text-gray-600 text-xs">
+                                        저비용/오픈소스/오프라인 솔루션 소개, 교육 현장 적용 사례 및 효과, 교사 활용법/노하우 공유
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visit-card border-orange-500 bg-white p-3 rounded-md shadow-sm">
+                            <div class="flex items-start">
+                                <div class="bg-orange-100 rounded-full p-2 flex-shrink-0 mr-2">
+                                    <i class="fas fa-industry text-orange-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">클라우드 인력 채용 기업 / 글로벌 IT 기업 (모듈 3, 4)</div>
+                                    <p class="text-gray-600 text-xs">
+                                        실제 필요한 기술/능력 청취, 교육과정 피드백, 채용 과정 이해, 산학협력 모델 벤치마킹
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visit-card border-red-500 bg-white p-3 rounded-md shadow-sm">
+                            <div class="flex items-start">
+                                <div class="bg-red-100 rounded-full p-2 flex-shrink-0 mr-2">
+                                    <i class="fas fa-rocket text-red-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">스타트업 육성기관 (인큐베이터) (모듈 5)</div>
+                                    <p class="text-gray-600 text-xs">
+                                        지원 프로그램 학습, 교육 연계 아이디어 획득, 피칭 참관 통한 평가 안목 향상
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="visit-card border-gray-400 bg-white p-3 rounded-md shadow-sm"> <!-- Added for others -->
+                            <div class="flex items-start">
+                                <div class="bg-gray-100 rounded-full p-2 flex-shrink-0 mr-2">
+                                    <i class="fas fa-users-cog text-gray-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">기타 (모듈 4 등)</div>
+                                    <p class="text-gray-600 text-xs">
+                                        IT 전문가 멘토링 연결/운영 노하우 학습(기관 방문/초청), IT 기술 컨퍼런스 참관(선택) 등
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Benefits and Expert Interaction -->
+                <div class="col-span-5">
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm h-full flex flex-col"> <!-- Reduced padding -->
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center"> <!-- Reduced margin -->
+                            <i class="fas fa-lightbulb text-blue-600 mr-2"></i>
+                            현장 견학의 핵심 가치
+                        </h3>
+                        
+                        <div class="space-y-2 mb-4"> <!-- Reduced spacing/margin -->
+                            <div class="benefit-item">
+                                <div class="font-medium text-gray-800 text-sm">실제 운영 통찰력 획득</div>
+                                <p class="text-gray-600 text-xs">
+                                    현장 실무 노하우, 성공/실패 사례 기반 문제 해결 방식 학습
+                                </p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="font-medium text-gray-800 text-sm">최신 기술/트렌드 경험</div>
+                                <p class="text-gray-600 text-xs">
+                                    클라우드/에듀테크 최신 도구 및 실제 적용 사례 직접 체험
+                                </p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="font-medium text-gray-800 text-sm">전문가 네트워크 구축</div>
+                                <p class="text-gray-600 text-xs">
+                                    현장 전문가, 동료 참가자와의 지속적 협력 및 자문 네트워크 형성
+                                </p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="font-medium text-gray-800 text-sm">현지 적용 모델 발굴</div>
+                                <p class="text-gray-600 text-xs">
+                                    자국 환경에 맞게 수정/적용 가능한 현실적 모델 및 아이디어 발견
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Expert Interaction -->
+                        <div class="mt-auto">
+                            <h4 class="font-medium text-blue-800 text-base mb-2 flex items-center"> <!-- Smaller title -->
+                                <i class="fas fa-comments text-blue-600 mr-1.5"></i>
+                                전문가 Q&A 및 피드백
+                            </h4>
+                            
+                            <div class="bg-blue-50 p-3 rounded-lg quote-container mb-3"> <!-- Reduced padding/margin -->
+                                <p class="text-gray-700 text-xs italic"> <!-- Smaller text -->
+                                    견학 기관별 현장 전문가 Q&A 세션은 자국 상황에 맞는 구체적 조언과
+                                    글로벌 협력 기회를 모색하는 핵심적인 기회가 될 것입니다.
+                                </p>
+                                
+                                <div class="mt-2 flex items-center border-t border-blue-200 pt-2"> <!-- Reduced spacing -->
+                                    <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2"> <!-- Smaller icon bg -->
+                                        <i class="fas fa-user-tie text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-xs">맞춤형 멘토링 연계 (모듈 4)</div>
+                                        <p class="text-xs text-gray-600">
+                                            참가자 관심 분야별 전문가 심층 면담 기회 제공 노력
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Item -->
+                            <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-2.5 rounded-md"> <!-- Reduced padding -->
+                                <div class="flex items-center">
+                                    <i class="fas fa-clipboard-check text-base mr-2"></i> <!-- Adjusted size -->
+                                    <div>
+                                        <div class="font-medium text-sm">견학 후속 활동</div>
+                                        <p class="text-xs opacity-90">
+                                            그룹 토론, 핵심 시사점 정리 및 개인별 액션 플랜 반영
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

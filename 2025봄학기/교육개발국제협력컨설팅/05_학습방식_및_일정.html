@@ -32,8 +32,8 @@
             border-left: 4px solid #3b82f6;
         }
         .learning-method-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px); /* Reduced hover */
+            box-shadow: 0 6px 10px -3px rgba(0, 0, 0, 0.07); /* Adjusted shadow */
         }
         .timeline-dot {
             width: 14px;
@@ -42,18 +42,25 @@
             border-radius: 50%;
             position: relative;
             z-index: 2;
+            border: 2px solid white; /* Added border for visibility */
         }
         .timeline-line {
             position: absolute;
-            top: 7px;
+            top: 7px; /* Centered with dot */
             left: 0;
-            height: 2px;
-            background-color: #dbeafe;
+            height: 3px; /* Thicker line */
+            background-color: #dbeafe; /* Lighter blue */
             width: 100%;
             z-index: 1;
         }
         .timeline-container {
             position: relative;
+        }
+        .schedule-phase {
+             transition: all 0.3s ease;
+        }
+        .schedule-phase:hover {
+             transform: scale(1.02); /* Slight scale on hover */
         }
     </style>
 </head>
@@ -65,7 +72,7 @@
         <!-- Slide Content -->
         <div class="flex flex-col p-12 h-full">
             <!-- Slide Title -->
-            <div class="mb-8">
+            <div class="mb-6"> <!-- Reduced margin -->
                 <h2 class="text-3xl font-bold text-gray-800">학습 방식 및 연수 일정</h2>
                 <div class="w-20 h-1 bg-blue-500 mt-2"></div>
             </div>
@@ -73,79 +80,81 @@
             <!-- Two Column Layout -->
             <div class="grid grid-cols-12 gap-6 flex-1">
                 <!-- Left Column: Learning Methods -->
-                <div class="col-span-6">
+                <div class="col-span-5"> <!-- Adjusted column span -->
                     <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
                         <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
-                        학습 방식
+                        주요 학습 방식
                     </h3>
                     
-                    <div class="space-y-4">
-                        <div class="learning-method-card bg-blue-50 p-4 rounded-md">
+                    <div class="space-y-3"> <!-- Reduced spacing -->
+                        <div class="learning-method-card bg-blue-50 p-3 rounded-md"> <!-- Reduced padding -->
                             <div class="flex items-start">
-                                <div class="bg-white rounded-full p-3 shadow-sm flex-shrink-0">
+                                <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
                                     <i class="fas fa-chalkboard-teacher text-blue-600"></i>
                                 </div>
-                                <div class="ml-3">
-                                    <div class="font-medium text-gray-800">전문가 강의</div>
-                                    <p class="text-gray-600 text-sm">
-                                        클라우드 및 에듀테크 분야 전문가의 이론 및 현장 경험 공유를 통한 지식 전달
-                                    </p>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">전문가 강의 & 특강</div>
+                                    <p class="text-gray-600 text-xs">핵심 이론, 최신 트렌드, 성공/개선 사례 공유</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="learning-method-card bg-blue-50 p-4 rounded-md">
+                         <div class="learning-method-card bg-blue-50 p-3 rounded-md">
                             <div class="flex items-start">
-                                <div class="bg-white rounded-full p-3 shadow-sm flex-shrink-0">
-                                    <i class="fas fa-users text-blue-600"></i>
+                                <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
+                                    <i class="fas fa-laptop-code text-purple-600"></i>
                                 </div>
-                                <div class="ml-3">
-                                    <div class="font-medium text-gray-800">그룹 토론 및 워크숍</div>
-                                    <p class="text-gray-600 text-sm">
-                                        국가별 상황을 고려한 실전 문제 해결을 위한 협력적 학습 및 아이디어 공유
-                                    </p>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">실습 (Hands-on Lab)</div>
+                                    <p class="text-gray-600 text-xs">클라우드 환경 구축, 에듀테크 도구 활용, 과정 개발 등 실무 기술 체득</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="learning-method-card bg-blue-50 p-3 rounded-md">
+                            <div class="flex items-start">
+                                <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
+                                    <i class="fas fa-users text-green-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">토론 & 워크숍</div>
+                                    <p class="text-gray-600 text-xs">국가별 현황 공유, 문제 해결 아이디어 발상, PBL 설계 등 협력 학습</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="learning-method-card bg-blue-50 p-4 rounded-md">
+                        <div class="learning-method-card bg-blue-50 p-3 rounded-md">
                             <div class="flex items-start">
-                                <div class="bg-white rounded-full p-3 shadow-sm flex-shrink-0">
-                                    <i class="fas fa-laptop-code text-blue-600"></i>
+                                <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
+                                    <i class="fas fa-building text-orange-600"></i>
                                 </div>
-                                <div class="ml-3">
-                                    <div class="font-medium text-gray-800">실습 및 핸즈온 랩</div>
-                                    <p class="text-gray-600 text-sm">
-                                        클라우드 환경 구축, 에듀테크 도구 활용, 교육 프로그램 설계 등의 실무 기술 습득
-                                    </p>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">현장 견학 & 벤치마킹</div>
+                                    <p class="text-gray-600 text-xs">우수 교육기관/기업 방문 통한 실제 운영 사례 학습 및 인사이트 획득</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="learning-method-card bg-blue-50 p-4 rounded-md">
+                         <div class="learning-method-card bg-blue-50 p-3 rounded-md">
                             <div class="flex items-start">
-                                <div class="bg-white rounded-full p-3 shadow-sm flex-shrink-0">
-                                    <i class="fas fa-building text-blue-600"></i>
+                                <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
+                                    <i class="fas fa-comments text-red-600"></i>
                                 </div>
-                                <div class="ml-3">
-                                    <div class="font-medium text-gray-800">현장 견학 및 벤치마킹</div>
-                                    <p class="text-gray-600 text-sm">
-                                        혁신적인 IT 교육기관 및 기업 방문을 통한 우수사례 학습 및 네트워크 구축
-                                    </p>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">네트워킹 & 멘토링</div>
+                                    <p class="text-gray-600 text-xs">참가자 간 교류, 전문가 Q&A, 맞춤형 멘토링 기회 제공</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="learning-method-card bg-blue-50 p-4 rounded-md">
+
+                        <div class="learning-method-card bg-blue-50 p-3 rounded-md">
                             <div class="flex items-start">
-                                <div class="bg-white rounded-full p-3 shadow-sm flex-shrink-0">
-                                    <i class="fas fa-lightbulb text-blue-600"></i>
+                                <div class="bg-white rounded-full p-2 shadow-sm flex-shrink-0 mr-2">
+                                    <i class="fas fa-lightbulb text-yellow-600"></i>
                                 </div>
-                                <div class="ml-3">
-                                    <div class="font-medium text-gray-800">액션 플랜 수립</div>
-                                    <p class="text-gray-600 text-sm">
-                                        연수 내용을 자국 환경에 맞게 적용하기 위한 구체적 실행 계획 수립 및 발표
-                                    </p>
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">액션 플랜 수립 & 발표</div>
+                                    <p class="text-gray-600 text-xs">연수 내용 기반 자국 적용 실행 계획 구체화 및 공유/피드백</p>
                                 </div>
                             </div>
                         </div>
@@ -153,111 +162,112 @@
                 </div>
                 
                 <!-- Right Column: Schedule -->
-                <div class="col-span-6">
+                <div class="col-span-7"> <!-- Adjusted column span -->
                     <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
                         <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
                         연수 일정 개요 (10일 과정)
                     </h3>
                     
                     <!-- Timeline -->
-                    <div class="mt-6 mb-4 timeline-container px-6">
+                    <div class="mt-4 mb-3 timeline-container px-4"> <!-- Adjusted spacing -->
                         <div class="timeline-line"></div>
-                        <div class="flex justify-between">
-                            <div class="flex flex-col items-center">
-                                <div class="timeline-dot"></div>
-                                <span class="text-sm mt-2 text-gray-700">1일차</span>
+                        <div class="flex justify-between text-center">
+                            <div class="flex-1">
+                                <div class="timeline-dot mx-auto"></div>
+                                <span class="text-xs mt-1 text-gray-700 block">1-2일차</span>
                             </div>
-                            <div class="flex flex-col items-center">
-                                <div class="timeline-dot"></div>
-                                <span class="text-sm mt-2 text-gray-700">3일차</span>
+                            <div class="flex-1">
+                                <div class="timeline-dot mx-auto"></div>
+                                <span class="text-xs mt-1 text-gray-700 block">3-5일차</span>
                             </div>
-                            <div class="flex flex-col items-center">
-                                <div class="timeline-dot"></div>
-                                <span class="text-sm mt-2 text-gray-700">6일차</span>
+                            <div class="flex-1">
+                                <div class="timeline-dot mx-auto"></div>
+                                <span class="text-xs mt-1 text-gray-700 block">6-7일차</span>
                             </div>
-                            <div class="flex flex-col items-center">
-                                <div class="timeline-dot"></div>
-                                <span class="text-sm mt-2 text-gray-700">8일차</span>
+                             <div class="flex-1">
+                                <div class="timeline-dot mx-auto"></div>
+                                <span class="text-xs mt-1 text-gray-700 block">8-9일차</span>
                             </div>
-                            <div class="flex flex-col items-center">
-                                <div class="timeline-dot"></div>
-                                <span class="text-sm mt-2 text-gray-700">10일차</span>
+                            <div class="flex-1">
+                                <div class="timeline-dot mx-auto"></div>
+                                <span class="text-xs mt-1 text-gray-700 block">10일차</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Schedule Phases -->
-                    <div class="space-y-4 mt-6">
-                        <div class="bg-white border-l-4 border-blue-500 p-4 rounded-r-md shadow-sm">
+                    <div class="space-y-2.5 mt-4"> <!-- Adjusted spacing -->
+                        <div class="schedule-phase bg-white border-l-4 border-blue-500 p-3 rounded-r-md shadow-sm"> <!-- Reduced padding -->
                             <div class="flex items-center">
-                                <div class="bg-blue-100 rounded-full p-2 mr-3">
-                                    <i class="fas fa-book-open text-blue-600"></i>
+                                <div class="bg-blue-100 rounded-full p-1.5 mr-2"> <!-- Smaller icon bg -->
+                                    <i class="fas fa-cloud text-blue-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">1-2일차: 이론 및 개념 학습</h4>
-                                    <p class="text-gray-600 text-sm">
-                                        클라우드 기술, 에듀테크, TCO, IT 직업교육 트렌드 등 핵심 이론 학습
+                                    <h4 class="font-medium text-gray-800 text-sm">1-2일차: 환경 분석 및 클라우드 기초</h4>
+                                    <p class="text-gray-600 text-xs">
+                                        국가별 현황 공유, 클라우드 필요성/개념, TCO 분석, ODA/빅테크 활용법 탐색
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="bg-white border-l-4 border-green-500 p-4 rounded-r-md shadow-sm">
+                        <div class="schedule-phase bg-white border-l-4 border-green-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
-                                <div class="bg-green-100 rounded-full p-2 mr-3">
-                                    <i class="fas fa-search text-green-600"></i>
+                                <div class="bg-green-100 rounded-full p-1.5 mr-2">
+                                    <i class="fas fa-laptop-code text-green-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">3-5일차: 현장 견학 및 사례 연구</h4>
-                                    <p class="text-gray-600 text-sm">
-                                        국내 우수 IT 교육기관, 클라우드 서비스 제공업체, 에듀테크 스타트업 방문
+                                    <h4 class="font-medium text-gray-800 text-sm">3-5일차: 에듀테크 활용 및 기관 방문</h4>
+                                    <p class="text-gray-600 text-xs">
+                                        맞춤형 에듀테크(오픈소스) 선정/활용법(모바일, AI, 오프라인), 관련 기업/학교 견학
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="bg-white border-l-4 border-purple-500 p-4 rounded-r-md shadow-sm">
+                        <div class="schedule-phase bg-white border-l-4 border-purple-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
-                                <div class="bg-purple-100 rounded-full p-2 mr-3">
-                                    <i class="fas fa-hands-helping text-purple-600"></i>
+                                <div class="bg-purple-100 rounded-full p-1.5 mr-2">
+                                    <i class="fas fa-project-diagram text-purple-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">6-7일차: 실습 및 워크숍</h4>
-                                    <p class="text-gray-600 text-sm">
-                                        클라우드 환경 설정, 실무 교육 설계, 에듀테크 도구 활용 등 핸즈온 세션
+                                    <h4 class="font-medium text-gray-800 text-sm">6-7일차: 실무 클라우드 교육 설계/실습</h4>
+                                    <p class="text-gray-600 text-xs">
+                                        클라우드 서비스 기반 수업 계획/실습 환경 구축(PBL, 자격증), 과정 개발 실습
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="bg-white border-l-4 border-yellow-500 p-4 rounded-r-md shadow-sm">
+                        <div class="schedule-phase bg-white border-l-4 border-yellow-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
-                                <div class="bg-yellow-100 rounded-full p-2 mr-3">
-                                    <i class="fas fa-tasks text-yellow-600"></i>
+                                <div class="bg-yellow-100 rounded-full p-1.5 mr-2">
+                                    <i class="fas fa-globe text-yellow-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">8-9일차: 액션 플랜 개발</h4>
-                                    <p class="text-gray-600 text-sm">
-                                        국가별 특성을 고려한 IT 교육 혁신 계획 수립 및 피드백 공유
+                                    <h4 class="font-medium text-gray-800 text-sm">8-9일차: 글로벌 역량 강화 및 액션 플랜</h4>
+                                    <p class="text-gray-600 text-xs">
+                                        글로벌 IT 동향/커리어, 소프트 스킬/협업툴, 기업 방문/멘토링, 액션 플랜 개발
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="bg-white border-l-4 border-red-500 p-4 rounded-r-md shadow-sm">
+                        <div class="schedule-phase bg-white border-l-4 border-red-500 p-3 rounded-r-md shadow-sm">
                             <div class="flex items-center">
-                                <div class="bg-red-100 rounded-full p-2 mr-3">
-                                    <i class="fas fa-flag-checkered text-red-600"></i>
+                                <div class="bg-red-100 rounded-full p-1.5 mr-2">
+                                    <i class="fas fa-rocket text-red-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">10일차: 종합 및 발표</h4>
-                                    <p class="text-gray-600 text-sm">
-                                        액션 플랜 최종 발표, 후속 지원 방안 논의, 네트워크 구축 및 연수 평가
+                                    <h4 class="font-medium text-gray-800 text-sm">10일차: 창업 교육 및 종합/수료</h4>
+                                    <p class="text-gray-600 text-xs">
+                                        IT 창업 지도 역량(MVP, 피칭), 액션 플랜 발표/피드백, 종합 정리 및 수료식
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <p class="text-xs text-gray-500 italic mt-3 text-center">※ 상세 일정은 <붙임1> 참조</p>
                 </div>
             </div>
         </div>
